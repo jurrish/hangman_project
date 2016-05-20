@@ -1,9 +1,26 @@
 body {
   max-width: 960;
+  text-align: center;
 }
 
 img {
   width: 12em;
   height: 12em;
   background-color: blue;
+  margin: 5em auto;
+}
+
+li {
+  display: inline-block;
+  list-style: none;
+}
+
+.bio section {
+  max-width: 30em;
+  display: inline-block;
+}
+
+.contact {
+  max-width: 90em;
+  margin: 10em auto;
 }
