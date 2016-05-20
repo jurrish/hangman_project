@@ -1,0 +1,57 @@
+body *{
+  margin: 0px auto;
+  padding: 0px auto;
+  width: 960px;
+}
+nav{
+  margin-top: 25px;
+  margin-bottom: 50px;
+}
+.container {
+  height: 400px;
+  width: 400px;
+  border: 3px solid black;
+  margin: 10px;
+}
+ul li {
+  display: inline;
+  list-style-type: none;
+}
+li{
+  padding-right: 15px;
+}
+header{
+  text-align: center;
+}
+#question {
+  float: left;
+}
+#answer {
+  float: left;
+  clear: left;
+  margin-top: 35px;
+}
+#hangman {
+  float: right;
+  margin-top: -416px;
+}
+#wrongAnswer {
+  float: right;
+  clear: right;
+  margin-top: 35px;
+}
+#submitButton {
+  clear: both;
+}
+#submit {
+  width: 100px;
+  height: 32px;
+  margin-top: 20px;
+}
+footer{
+  text-align: center;
+  margin-top: 40px;
+}
+p{
+  color: blue;/*delete just placeholder*/
+}
