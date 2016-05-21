@@ -14,10 +14,10 @@ function Question(name, path) {
 
 if (localStorage.getItem('userAccount') === null) { //This may not be neccessary to do. On page load either get or make questionsArray
   console.log("userAccount array created.");
-  var userAccount = [];
-  localStorage.setItem("userAccount", JSON.stringify(userAccount));
+  var userAccountArray = [];
+  localStorage.setItem("userAccount", JSON.stringify(userAccountArray));
 } else {
-  var userAccount = JSON.parse(localStorage.getItem('userAccount'));
+  var userAccountArray = JSON.parse(localStorage.getItem('userAccount'));
   console.log("userAccount obtained from localStorage.");
 }
 
@@ -27,23 +27,34 @@ function UserAccount(userName, passWord) {
   this.userName = userName;
   this.passWord = passWord;
   this.questionsAsked = 0;
-  userAccount.push(this);
+  userAccountArray.push(this);
+  console.log("New user created! UserAccount object constructor was used.")
+}
+
+var accountFunctions = {
+  activeUser : null,
+  findUser : function(userName, passWord) {
+    if (userAccountArray.length > 0) {
+      for (users in userAccountArray) {
+        if (userName === userAccountArray[users].userName && passWord === userAccountArray[users].passWord) {
+          activeUser = userAccountArray[users];
+          console.log(activeUser + ' already exists and is the current user.');
+        }
+      }
+    } else {
+      activeUser = new UserAccount(userName, passWord);
+      console.log(activeUser);
+      localStorage.setItem( "userAccount", JSON.stringify(userAccountArray));
+
+    }
+  }
 }
 
 formEl.addEventListener('submit', function(event) {
   event.preventDefault();
-  var userName = event.target.name.value;
-  var passWord = event.target.password.value;
-  console.log('username = ' + userName + '  ' + passWord + ' is the password.');
-
-  //Maybe an if statement here?
-for (var n = 0; n < userAccount.length; n++) {
-  if (userName === userAccount[n].userName || passWord === userAccount[n].passWord) {
-    var activeUser = userAccount[n];
-  } else {
-    var newUser = new UserAccount(userName, passWord);
-    localStorage.setItem("userAccount", JSON.stringify(userAccount));
-  }
-}
+  var userNameInput = event.target.name.value;
+  var passWordInput = event.target.password.value;
+  console.log('username = ' + userNameInput + '  ' + passWordInput + ' is the password.');
+  accountFunctions.findUser(userNameInput, passWordInput);
 
 });
