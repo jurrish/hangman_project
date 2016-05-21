@@ -12,7 +12,7 @@ function Question(name, path) {
 
 //New Code is below this comment.
 
-if (localStorage.getItem('userAccount') === null) { //This may not be neccessary to do.
+if (localStorage.getItem('userAccount') === null) { //This may not be neccessary to do. On page load either get or make questionsArray
   console.log("userAccount array created.");
   var userAccount = [];
   localStorage.setItem("userAccount", JSON.stringify(userAccount));
@@ -21,7 +21,7 @@ if (localStorage.getItem('userAccount') === null) { //This may not be neccessary
   console.log("userAccount obtained from localStorage.");
 }
 
-var formEl = document.getElementById('form');
+var formEl = document.getElementById('form'); //Controls the userName and passWord inputs
 
 function UserAccount(userName, passWord) {
   this.userName = userName;
