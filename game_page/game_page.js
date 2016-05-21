@@ -1,5 +1,7 @@
 var questionsArray = [];
-var questionNames = ['calculate', 'callQuestion', 'htmlQuestion', 'testQuestion', 'varQuestion'];
+var answerArray = [];
+var questionNames = ['calculate', 'callQuestion', 'htmlQuestion', 'testQuestion', 'varQuestion', 'childQuestion', 'methodQuestion', 'methodQuestion2', 'multipleObjects', 'objLitQuestion', 'returnQuestion', 'roundDownQuestion'];
+var correctAnswers = [];
 
 function Question(name, path) {
   this.name = name;
