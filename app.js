@@ -34,6 +34,16 @@ formEl.addEventListener('submit', function(event) {
   event.preventDefault();
   var userName = event.target.name.value;
   var passWord = event.target.password.value;
-  var newUser = new UserAccount(userName, passWord);
   console.log('username = ' + userName + '  ' + passWord + ' is the password.');
+
+  //Maybe an if statement here?
+for (var n = 0; n < userAccount.length; n++) {
+  if (userName === userAccount[n].userName || passWord === userAccount[n].passWord) {
+    var activeUser = userAccount[n];
+  } else {
+    var newUser = new UserAccount(userName, passWord);
+    localStorage.setItem("userAccount", JSON.stringify(userAccount));
+  }
+}
+
 });
