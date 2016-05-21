@@ -62,3 +62,8 @@ p{
 .sourceMaterial {
   font-size: .7em;
 }
+fieldset, label, input{
+  width: 365px;
+  float: left;
+  padding-bottom: 20px;
+}
