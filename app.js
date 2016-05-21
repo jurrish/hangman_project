@@ -31,14 +31,19 @@ function UserAccount(userName, passWord) {
   console.log("New user created! UserAccount object constructor was used.")
 }
 
-var accountFunctions = {
-  activeUser : null,
+var accountFunctions = {                                                            //It appears that extra objects area created and added to the array.
+  activeUser : "",
   findUser : function(userName, passWord) {
     if (userAccountArray.length > 0) {
       for (users in userAccountArray) {
-        if (userName === userAccountArray[users].userName && passWord === userAccountArray[users].passWord) {
+        if ((userName === userAccountArray[users].userName && passWord) === (userAccountArray[users].passWord)) {
           activeUser = userAccountArray[users];
+          break;
           console.log(activeUser + ' already exists and is the current user.');
+        } else {
+          activeUser = new UserAccount(userName, passWord);
+          console.log(activeUser);
+          localStorage.setItem( "userAccount", JSON.stringify(userAccountArray)); // Happening during the for loop when results don't match. Not good. Maybe something with null?
         }
       }
     } else {
