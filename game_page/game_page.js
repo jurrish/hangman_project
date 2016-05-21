@@ -17,9 +17,12 @@ function Question(name, path) {
 
 var questionObject = {
   elObj : document.getElementById('img'),
+  elQuestion: document.createElement('p'),
+  elTest: document.getElementById('question'),
 
   appendingImage: function() {
     this.elObj.src = questionsArray[0].path;
+    this.elTest.textContent = 'What is the value of wallOne?';
   }
 };
 questionObject.appendingImage();
