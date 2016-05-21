@@ -62,3 +62,7 @@ p{
 .sourceMaterial {
   font-size: .7em;
 }
+
+img {
+  width: 400px;
+}
