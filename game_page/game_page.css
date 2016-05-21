@@ -67,3 +67,6 @@ fieldset, label, input{
   float: left;
   padding-bottom: 20px;
 }
+img {
+  width: 400px;
+}
