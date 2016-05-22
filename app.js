@@ -52,6 +52,7 @@ var accountFunctions = {                                                        
       accountFunctions.activeUser = new UserAccount(userName, passWord);
       console.log("newUser method used to create a new user account");
       console.log(accountFunctions.activeUser);
+      localStorage.setItem("userAccount", JSON.stringify(userAccountArray));
     }
   },
   //   if (userAccountArray.length > 0) {
