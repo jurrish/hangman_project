@@ -70,3 +70,7 @@ fieldset, label, input{
 img {
   width: 400px;
 }
+#canvasHangman {
+  width: 400px;
+  height: 400px;
+}

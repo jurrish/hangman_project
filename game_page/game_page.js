@@ -23,3 +23,27 @@ var questionObject = {
   }
 };
 questionObject.appendingImage();
+
+//canvas
+
+window.onload = function(){
+  var canvas = document.getElementById('canvasHangman'),
+      context = canvas.getContext('2d');
+  context.fillStyle = 'black';
+  context.fillRect(0, 0, canvas.width, canvas.height);
+
+context.fillStyle = 'white';
+context.fillRect(200, 50, 50, 50);
+
+/*  context.fillStyle = 'red';
+  context.fillRect(20, 20, 50, 50);
+
+  context.strokeStyle = 'white';
+  context.lineWidth = 4.4;
+  context.strokeRect(10, 370, 380, 0);
+
+  context.strokeStyle = 'white';
+  context.lineWidth = 4;
+  context.strokeRect(300, 170, 0, 200);*/
+
+};
