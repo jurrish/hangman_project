@@ -32,10 +32,20 @@ window.onload = function(){
   context.fillStyle = 'black';
   context.fillRect(0, 0, canvas.width, canvas.height);
 
+var cornerRadius = 20;
+var rectX = 50;
+var rectY = 50;
+var rectWidth = 100;
+var rectHeight = 100;
+
 context.fillStyle = 'white';
 context.fillRect(200, 50, 50, 50);
+context.lineJoin = 'round';
+context.lineWidth = 'cornerRadius';
 
-/*  context.fillStyle = 'red';
+// context.strokeRect(rectX+(cornerRadius/2),rectY+(cornerRadius/2)rectWidth-cornerRadius, rectHeight-cornerRadius);
+// context.fillRect(rectX+(cornerRadius/2), rectY+(cornerRadius/2), rectWidth-cornerRadius, rectHeight-cornerRadius);
+  context.fillStyle = 'red';
   context.fillRect(20, 20, 50, 50);
 
   context.strokeStyle = 'white';
@@ -44,6 +54,6 @@ context.fillRect(200, 50, 50, 50);
 
   context.strokeStyle = 'white';
   context.lineWidth = 4;
-  context.strokeRect(300, 170, 0, 200);*/
+  context.strokeRect(300, 170, 0, 200);
 
 };
