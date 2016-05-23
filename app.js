@@ -38,6 +38,8 @@ var accountFunctions = {                                                        
           if (passWord === userAccountArray[users].passWord) {
             console.log('innerLoop');
             accountFunctions.activeUser = userAccountArray[users];
+            //Push activeUser to localStorage
+            localStorage.setItem('activeUser', JSON.stringify(accountFunctions.activeUser));
             console.log('findUser method found the user account');
           }
         }
@@ -48,6 +50,8 @@ var accountFunctions = {                                                        
   newUser : function(obj, userName, passWord) {
     if (obj === null) {
       accountFunctions.activeUser = new UserAccount(userName, passWord);
+      //Push activeUser to local storage
+      localStorage.setItem('activeUser', JSON.stringify(accountFunctions.activeUser));
       console.log('newUser method used to create a new user account');
       console.log(accountFunctions.activeUser);
       localStorage.setItem('userAccount', JSON.stringify(userAccountArray));
@@ -60,10 +64,20 @@ var accountFunctions = {                                                        
     var passWordInput = event.target.password.value;
     accountFunctions.findUser(userNameInput, passWordInput);
     accountFunctions.newUser(accountFunctions.activeUser, userNameInput, passWordInput);
+    // window.location = 'game_page/game_page.html';
+    // formEl.removeEventListener('submit', accountFunctions.indexOnSubmit); // Double check the format for this.
+    accountFunctions.loadGamePage();
+    accountFunctions.activeUser = JSON.parse(localStorage.getItem('activeUser')); // Supposed to assign value to the activeUser after page load. Does not appear to work.
+    console.log(accountFunctions.activeUser);
+  },
+
+  loadGamePage : function() {
     window.location = 'game_page/game_page.html';
-    formEl.removeEventListener('submit', indexOnSubmit); // Double check the format for this.
+    // Get active user from local storage
+    // formEl.removeEventListener('submit', accountFunctions.indexOnSubmit); // Double check the format for this.
   }
 };
+
   //   if (userAccountArray.length > 0) {
   //     for (users in userAccountArray) {
   //       if ((userName === userAccountArray[users].userName && passWord) === (userAccountArray[users].passWord)) {
@@ -83,12 +97,15 @@ var accountFunctions = {                                                        
   //
   //   }
 
-formEl.addEventListener('submit', function(event) {
-  event.preventDefault();
-  var userNameInput = event.target.name.value;
-  var passWordInput = event.target.password.value;
-  console.log('username = ' + userNameInput + '  ' + passWordInput + ' is the password.');
-  accountFunctions.findUser(userNameInput, passWordInput);
-  accountFunctions.newUser(accountFunctions.activeUser, userNameInput, passWordInput);
-  window.location = 'game_page/game_page.html';
-});
+// formEl.addEventListener('submit', function(event) {
+//   event.preventDefault();
+//   var userNameInput = event.target.name.value;
+//   var passWordInput = event.target.password.value;
+//   console.log('username = ' + userNameInput + '  ' + passWordInput + ' is the password.');
+//   accountFunctions.findUser(userNameInput, passWordInput);
+//   accountFunctions.newUser(accountFunctions.activeUser, userNameInput, passWordInput);
+//   window.location = 'game_page/game_page.html';
+// });
+if (formEl) {
+  formEl.addEventListener('submit', accountFunctions.indexOnSubmit);
+};
