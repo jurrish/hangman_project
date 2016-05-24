@@ -4,25 +4,30 @@
     <title>Hanging By a String</title>
     <link rel='stylesheet' type='text/css' href='style.css'>
   </head>
-  <section id='nav'>
-    <nav>
+  <body>
+    <header>
+      <h1>Hanging By a 'str'<h1>
+      <img alt="knot" id='knot' src="image/knot.png">
+    </header>
+      <nav>
       <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Hangman</a></li>
-        <li><a href="#">About Us</a></li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="game_page/game_page.html">Hangman</a></li>
+        <li><a href="page3/contact.html">About Us</a></li>
       </ul>
     </nav>
+    <section id='about'>
+      <h2 id="title">Why use Hangman?</h2>
+      <p id="intro">We've all struggled with learning to code at some point or another. I think that's a fairly common theme in learning anything. It's been our experience that absorbing information varies from person to person, but having fun and helpful resources is definitely beneficial. Hanging by a string aims to make the learning process more enjoyable for our users, while reifying concepts that are essential to retaining vanilla javascript. Basically, we strive to solidify concepts by providing immediate feedback on common mistakes in a less stressful environment, while engaging the user in a playful way.</p>
+      <p id="hackIt"><em>Can you hack it?</em></p>
   </section>
-  <section id='about'>
-    <h1>Why use Hangman?</h1>
-    <p>We've all struggled with learning to code at some point or another. I think that's a fairly common theme in learning anything. It's been our experience that absorbing information varies from person to person, but having fun and helpful resources is definitely beneficial. Hanging by a string aims to make the learning process more enjoyable for our users, while reifying concepts that are essential to retaining vanilla javascript. Basically, we strive to solidify concepts by providing immediate feedback on common mistakes in a less stressful environment, while engaging the user in a playful way.</p>
-    </p><em>Can you hack it?</em></p>
-  </section>
-  <body>
     <form id='form'>
-      <input type='text' name='name'>Enter your name here</input>
-      <input type='submit'></input>
+      <input type='text' name='name' placeholder="Enter Your Name"></input>
+      <input id ="startButton" type='submit'></input>
     </form>
+    <footer>
+      <small>Hanging By A 'str' &copy; 2016</small>
+    </footer>
     <script type='text/javascript' src='app.js'></script>
   </body>
 </html>

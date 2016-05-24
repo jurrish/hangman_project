@@ -7,12 +7,13 @@
   <body>
     <main>
       <header>
-        <h1>Working Title</h1>
+        <h1>Hangman</h1>
+        <img alt="knot" id='knot' src="../image/knot.png">
       </header>
       <nav>
         <ul>
-          <li><a href="#blank">Home</a></li>
-          <li><a href="#blank">About us</a></li>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../page3/contact.html">About us</a></li>
         </ul>
       </nav>
       <section class="container" id="ques">
@@ -23,15 +24,17 @@
       <section class="container" id="answer">
         <form>
           <fieldset>
-            <label><input type='radio' name='answers' id='radio1' value=" " class="radioButt"></label>
-            <label><input type='radio' name='answers' id='radio2' value=" " class="radioButt"></label>
-            <label><input type='radio' name='answers' id='radio3' value=" " class="radioButt"></label>
-            <label><input type='radio' name='answers' id='radio4' value=" " class="radioButt"></label>
+            <label><input type='radio' name='answers' id='radio1' value=""  class="radioButt"></label>
+            <label><input type='radio' name='answers' id='radio2' value="" class="radioButt"></label>
+            <label><input type='radio' name='answers' id='radio3' value="" class="radioButt"></label>
+            <label><input type='radio' name='answers' id='radio4' value="" class="radioButt"></label>
           </fieldset>
         </form>
       </section>
       <section class="container" id="hangman">
-        <p>Hangman</p><!--delete, just a placeholder-->
+        <canvas id='canvasHangman' width="400" height="400">
+          you should be using chrome
+        </canvas>
       </section>
       <section class="container" id="wrongAnswer">
         <p>wrong answers</p><!--delete, just a placeholder-->

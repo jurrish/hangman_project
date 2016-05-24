@@ -1,26 +1,94 @@
-body {
-  max-width: 960;
-  text-align: center;
+@import url(https://fonts.googleapis.com/css?family=PT+Sans);
+/*font-family: 'PT Sans', sans-serif;*/
+html{
+  background-color: #8C0303;
+  position: static;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 245%;
+  box-shadow: 0 0 200px rgba(0,0,0,0.9) inset;
 }
-
-img {
+body {
+  width: 960px;
+  margin: 0 auto;
+  padding: 0 auto;
+}
+header{
+  text-align: center;
+  padding-top: 33px;
+}
+h1{
+  font-family: 'PT Sans', sans-serif;
+  font-size: 3em;
+}
+h2{
+  font-family: 'PT Sans', sans-serif;
+  font-size: 2.1em;
+}
+#knot{
+  width: 130px;
+  float: right;
+  margin-top: -208px;
+  margin-right: 65px;
+}
+.bioPic {
   width: 12em;
   height: 12em;
-  background-color: blue;
-  margin: 5em auto;
+  margin: 1em;
+  background-color: #FCF4F6;
+  border-radius: 10px;
+  border: 3px solid #000;
 }
-
+nav{
+  margin-bottom: 70px;
+}
+ul{
+  padding: 0px;
+}
 li {
-  display: inline-block;
-  list-style: none;
+  display: inline;
+  text-decoration: none;
+  margin-right: 15px;
 }
-
-.bio section {
-  max-width: 30em;
-  display: inline-block;
+a{
+  text-decoration: none;
+  padding: 5px;
+  font-family: 'PT Sans', sans-serif;
+  font-size: 1.3em;
 }
-
-.contact {
-  max-width: 90em;
-  margin: 10em auto;
+a:link, a:visited{
+  color: #0C0D0A;
+}
+a:hover, a:active{
+  color: #FCF4F6;
+}
+#bio1 {
+  width: 450px;
+  float: left;
+  text-align: center;
+}
+#bio2 {
+  width: 450px;
+  float: right;
+  text-align: center;
+}
+#bio3 {
+  clear: right;
+  text-align: center;
+  padding-top: 3em;
+}
+#codeFellows {
+  padding-top: 45px;
+  text-align: center;
+}
+p{
+  font-family: 'PT Sans', sans-serif;
+  background-color: #FCF4F6;
+  border-radius: 10px;
+  border: 3px solid #000;
+  padding: 4px;
+}
+footer{
+  text-align: center;
 }
