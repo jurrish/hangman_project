@@ -29,31 +29,49 @@ questionObject.appendingImage();
 window.onload = function(){
   var canvas = document.getElementById('canvasHangman'),
       context = canvas.getContext('2d');
+      centerX = 0;
+      centerY = 0;
+      radius = 50;
+
   context.fillStyle = 'black';
   context.fillRect(0, 0, canvas.width, canvas.height);
 
-var cornerRadius = 20;
-var rectX = 50;
-var rectY = 50;
-var rectWidth = 100;
-var rectHeight = 100;
-
-context.fillStyle = 'white';
-context.fillRect(200, 50, 50, 50);
-context.lineJoin = 'round';
-context.lineWidth = 'cornerRadius';
-
-// context.strokeRect(rectX+(cornerRadius/2),rectY+(cornerRadius/2)rectWidth-cornerRadius, rectHeight-cornerRadius);
-// context.fillRect(rectX+(cornerRadius/2), rectY+(cornerRadius/2), rectWidth-cornerRadius, rectHeight-cornerRadius);
-  context.fillStyle = 'red';
-  context.fillRect(20, 20, 50, 50);
-
   context.strokeStyle = 'white';
-  context.lineWidth = 4.4;
+  context.lineWidth = 8.4;
   context.strokeRect(10, 370, 380, 0);
 
   context.strokeStyle = 'white';
-  context.lineWidth = 4;
-  context.strokeRect(300, 170, 0, 200);
+  context.lineWidth = 10;
+  context.strokeRect(350, 89, 0, 280);
+
+  context.strokeStyle = 'white';
+  context.lineWidth = 10;
+  context.strokeRect(200, 100, 160, 0);
+
+  context.strokeStyle = 'white';
+  context.lineWidth = 7;
+  context.strokeRect(220,100,0,50);
+
+
+
+  //oval head
+context.save();
+context.translate(canvas.width / 2, canvas.height / 2);
+context.scale(1, 2);
+context.beginPath();
+context.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
+context.restore();
+
+context.fillStyle = 'white';
+context.fill();
+context.lineWidth = 8;
+context.strokeStyle = 'white';
+context.stroke();
+
+
+context.strokeStyle = 'white';
+context.lineWidth = 10;
+context.rotate(Math.PI/4);
+context.strokeRect(295,-155,46,0);
 
 };
