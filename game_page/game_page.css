@@ -1,17 +1,39 @@
+@import url(https://fonts.googleapis.com/css?family=PT+Sans);
+/*font-family: 'PT Sans', sans-serif;*/
+html{
+  background-color: #8C0303;
+  position: static;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 200%;
+  box-shadow: 0 0 200px rgba(0,0,0,0.9) inset;
+}
 body *{
   margin: 0px auto;
   padding: 0px auto;
   width: 960px;
 }
+#knot{
+  width: 130px;
+  float: right;
+  margin-top: -165px;
+  margin-right: 65px;
+}
 nav{
-  margin-top: 25px;
-  margin-bottom: 50px;
+  margin-bottom: 90px;
+}
+h1{
+  font-family: 'PT Sans', sans-serif;
+  font-size: 3em;
 }
 .container {
   height: 400px;
   width: 400px;
-  border: 3px solid black;
   margin: 10px;
+  background-color: #FCF4F6;
+  border-radius: 10px;
+  border: 3px solid #000;
 }
 ul li {
   display: inline;
@@ -20,8 +42,22 @@ ul li {
 li{
   padding-right: 15px;
 }
+a{
+  text-decoration: none;
+  padding: 5px;
+  font-family: 'PT Sans', sans-serif;
+  font-size: 1.3em;
+}
+a:link, a:visited{
+  color: #0C0D0A;
+}
+a:hover, a:active{
+  color: #FCF4F6;
+}
 header{
   text-align: center;
+  padding-top: 70px;
+  padding-bottom: 50px;
 }
 #question {
   float: left;
@@ -47,13 +83,21 @@ header{
   width: 100px;
   height: 32px;
   margin-top: 20px;
+  margin-left: 165px;
+  font-size: .8em;
+  background-color: #000;
+  color: #fff;
+  border: 2px solid #000;
+  border-radius: 5px 5px 5px 5px;
 }
 footer{
   text-align: center;
   margin-top: 40px;
+  padding-top: 200px;
+  font-family: 'PT Sans', sans-serif;
 }
 p{
-  color: blue;/*delete just placeholder*/
+  color: #000;/*delete just placeholder*/
 }
 #source {
   padding-top: 25px;
@@ -62,7 +106,15 @@ p{
 .sourceMaterial {
   font-size: .7em;
 }
-
+fieldset, label, input{
+  width: 365px;
+  float: left;
+  padding-bottom: 20px;
+}
 img {
   width: 400px;
+}
+#canvasHangman {
+  width: 400px;
+  height: 400px;
 }
