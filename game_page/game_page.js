@@ -1,7 +1,10 @@
 var questionsArray = [];
+var promptArray = ['What is the return value of wallOne?', 'What\'s the importance of updateMessage(); ?', 'Which is correct about the following diagram?' ];
+var responseArray = [['15', '40', '8', 'area'], ['It updates the variable el', 'It calls the function', 'It\'s not important', 'It writes text content into the child element'], ['<p> is a child of <div>', '<head> is a grandchild of document', '<head> is a parent of both <head> and <body>', 'all of these are correct'], []];
+var correctAnswer = ['15', 'It calls the function', 'all of these are correct'];
+var questionsObject = [];
 var answerArray = [];
 var questionNames = ['calculate', 'callQuestion', 'htmlQuestion', 'testQuestion', 'varQuestion', 'childQuestion', 'methodQuestion', 'methodQuestion2', 'multipleObjects', 'objLitQuestion', 'returnQuestion', 'roundDownQuestion'];
-var correctAnswers = [];
 
 function Question(name, path) {
   this.name = name;
@@ -15,17 +18,33 @@ function Question(name, path) {
   }
 })();
 
-var questionObject = {
-  elObj : document.getElementById('img'),
-  elQuestion: document.createElement('p'),
-  elTest: document.getElementById('question'),
+function QuesConstructor(quest, answer, allQuestions) {
+  this.quest = quest;
+  this.answer = answer;
+  this.allQuestions = allQuestions;
+  // this.canvas = canvas;
+  questionsObject.push(this);
+};
 
-  appendingImage: function() {
-    this.elObj.src = questionsArray[0].path;
-    this.elTest.textContent = 'What is the value of wallOne?';
+function addingQuestions() {
+  for(var j = 0; j < promptArray.length; j++) {
+    new QuesConstructor(promptArray[j], correctAnswer[j], responseArray[j]);
   }
 };
-questionObject.appendingImage();
+addingQuestions();
+
+QuesConstructor.prototype.appendingImage = function() {
+  var elQuesPic = document.getElementById('img');
+  var elQuesParent = document.getElementById('test');
+  var elQuesText = document.createElement('p');
+  for(var i = 0; i < questionsArray.length; i++) {
+    elQuesPic.src = questionsArray[i].path;
+    console.log('image pop');
+    elQuesText.textContent = 'hola fucker';
+    elQuesParent.appendChild(elQuesText);
+  }
+};
+// answer.appendingImage();
 
 //canvas
 
