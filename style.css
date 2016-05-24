@@ -89,7 +89,7 @@ em {
 }
 input{
   text-align: center;
-  width: 150px;
+  width: 200px;
   float: left;
   clear: left;
   margin-top: 10px;
@@ -97,7 +97,9 @@ input{
   font-size: .8em;
 }
 #startButton{
-  float: left;
+  width: 150px;
+  float: right;
+  margin-right: 22px;
   font-size: .8em;
   background-color: #000;
   color: #fff;
