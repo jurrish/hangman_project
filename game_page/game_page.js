@@ -44,7 +44,17 @@ QuesConstructor.prototype.appendingImage = function() {
     elQuesParent.appendChild(elQuesText);
   }
 };
-// answer.appendingImage();
+questionsObject[0].appendingImage();
+
+//display answers
+//function createRadioButton
+//display wrong answers in wrong anwser section
+
+//sync submit button to hangman and wrong anwser section
+
+//sync 'back to questions' button back to game and clear wrong answers section
+
+// tracker of wrong and correct answers sync to localstorage
 
 //canvas
 var canvas = document.getElementById('canvasHangman'),context = canvas.getContext('2d');
