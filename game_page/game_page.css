@@ -84,10 +84,17 @@ header{
   clear: both;
 }
 #submit {
+  margin-left: 165px;
+}
+#backToQuestion{
+  width: 200px;
+  float: right;
+  margin-right: 90px;
+}
+.gameButtons{
+  margin-top: 20px;
   width: 100px;
   height: 32px;
-  margin-top: 20px;
-  margin-left: 165px;
   font-size: .8em;
   background-color: #000;
   color: #fff;
