@@ -87,6 +87,40 @@ window.onload = function(){
   context.lineWidth = 8;
   context.strokeStyle = 'white';
   context.stroke();
+//left eyes
+  var eyeX = 150;
+  var eyeY = -260;
+  var eyeRadius = 50;
+
+  context.save();
+  context.translate(canvas.width / 2, canvas.height / 2);
+  context.scale(.07, .09);
+  context.beginPath();
+  context.arc(eyeX, eyeY, eyeRadius, 0, 2 * Math.PI, false);
+  context.restore();
+
+  context.fillStyle = 'black';
+  context.fill();
+  context.lineWidth = 2;
+  context.strokeStyle = 'black';
+  context.stroke();
+//right eye
+  var rightEyeX = 420;
+  var rightEyeY = -260;
+  var rightEyeRadius = 50;
+
+  context.save();
+  context.translate(canvas.width / 2, canvas.height / 2);
+  context.scale(.07, .09);
+  context.beginPath();
+  context.arc(rightEyeX, rightEyeY, rightEyeRadius, 0, 2 * Math.PI, false);
+  context.restore();
+
+  context.fillStyle = 'black';
+  context.fill();
+  context.lineWidth = 2;
+  context.strokeStyle = 'black';
+  context.stroke();
 //torso
   context.strokeStyle = 'white';
   context.lineWidth = 8;
@@ -137,10 +171,10 @@ window.onload = function(){
   context.strokeStyle = 'white';
   context.stroke();
 //left arm
-  var xLeftArm = canvas.width / 1.4;
-  var yLeftArm = canvas.height / 1.46;
+  var xLeftArm = canvas.width / 1.49;
+  var yLeftArm = canvas.height / 1.4;
   var armLeftRadius = 85;
-  var startLeftArmAngle = .7 * Math.PI;
+  var startLeftArmAngle = 1.1 * Math.PI;
   var endLeftArmAngle =  1.3 * Math.PI;
   var counterLeftArmClockwise = false;
   context.beginPath();
