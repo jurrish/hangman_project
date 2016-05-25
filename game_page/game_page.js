@@ -50,6 +50,12 @@ QuesConstructor.prototype.appendingImage = function() {
 var canvas = document.getElementById('canvasHangman'),context = canvas.getContext('2d');
 window.onload = function(){
   canvasRender.gallows();
+  canvasRender.head();
+  canvasRender.torso();
+  canvasRender.rightLeg();
+  canvasRender.leftLeg();
+  canvasRender.rightArm();
+  canvasRender.leftArm();
 };
 
 var canvasRender = {
@@ -73,10 +79,10 @@ var canvasRender = {
     context.lineWidth = 7;
     context.strokeRect(220,100,0,50);
   // angle support
-    context.strokeStyle = 'white';
-    context.lineWidth = 10;
-    context.rotate(Math.PI / 4);
-    context.strokeRect(295, -155, 46, 0);
+    // context.strokeStyle = 'white';
+    // context.lineWidth = 10;
+    // context.rotate(Math.PI / 4);
+    // context.strokeRect(295, -155, 46, 0);
   },
 
   head: function() {
