@@ -9,7 +9,11 @@ html{
   height: 200%;
   box-shadow: 0 0 200px rgba(0,0,0,0.9) inset;
 }
-body *{
+* {
+  margin: auto;
+  padding: auto;
+}
+body {
   margin: 0px auto;
   padding: 0px auto;
   width: 960px;
@@ -17,7 +21,7 @@ body *{
 #knot{
   width: 130px;
   float: right;
-  margin-top: -165px;
+  margin-top: -157px;
   margin-right: 65px;
 }
 nav{
