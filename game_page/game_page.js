@@ -1,6 +1,5 @@
 var questionsArray = [];
-var promptArray = ['What is the return value of wallOne?',
-<<<<<<< HEAD
+var promptArray = [ 'What is the return value of wallOne?',
  'What\'s the importance of updateMessage(); ?',
  'Which is correct about the following diagram?',
  'What is the name of the folder that the stylesheet is saved in?',
