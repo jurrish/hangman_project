@@ -72,7 +72,7 @@ for (var i = 0; i < responseArray.length; i++){
     radioTestThree.textContent = responseArray[i][j++];
 
     var radioTestFour = document.getElementById('testFour');
-    radioTestFour.textContent = responseArray[i][j];
+    radioTestFour.textContent = responseArray[i][j++];
 
     console.log(responseArray[i][j]);
     // var radioLabels = document.getElementByTagName('label');
