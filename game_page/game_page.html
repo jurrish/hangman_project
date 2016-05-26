@@ -23,18 +23,22 @@
       <section class="container" id="answer">
           <form id='formId'>
             <fieldset>
-              <label id='testOne'></label>
+              <label for='radio1' id='testOne'></label>
               <input type='radio' name='answers' id='radio1' value=" " class="radioButt">
 
-              <label id='testTwo'></label>
+              <label for='radio2' id='testTwo'></label>
               <input type='radio' name='answers' id='radio2' value=" " class="radioButt">
 
-              <label id='testThree'></label>
+              <label for='radio3' id='testThree'></label>
               <input type='radio' name='answers' id='radio3' value=" " class="radioButt">
 
-              <label id='testFour'></label>
+              <label for='radio4' id='testFour'></label>
               <input type='radio' name='answers' id='radio4' value=" " class="radioButt">
             </fieldset>
+            <section id="submitButton">
+              <button class="gameButtons" id='submit' name="submit">Submit</button>
+              <button class="gameButtons" id="backToQuestion" name="backToQuestion">Back To Question</button>
+            </section>
           </form>
         </section>
       <section class="container" id="hangman">
@@ -43,11 +47,6 @@
         </canvas>
       </section>
       <section class="container" id="wrongAnswer">
-        <p>wrong answers</p><!--delete, just a placeholder-->
-      </section>
-      <section id="submitButton">
-        <button class="gameButtons" id='submit' name="submit">Submit</button>
-        <button class="gameButtons" id="backToQuestion" name="backToQuestion">Back To Question</button>
       </section>
       <footer>
         <section id="source">
