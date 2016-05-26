@@ -81,21 +81,17 @@ function displayMultAnswers() {
   }
 };
 displayMultAnswers();
+
 //display wrong answers in wrong anwser section
-// function displayCorrectAnswers(){
-//   for(var i = 0; i < correctAnswer.length; i++){
-//     var rightAnswer = document.getElementById('wrongAnswer');
-//     var theAnswerIs = document.createElement('p');
-//     theAnswerIs.textContent = correctAnswer[i];
-//     rightAnswer.appendChild(theAnswerIs);
-//   }
-// };
-// displayCorrectAnswers();
-//sync submit button to hangman and wrong anwser section
-
-//sync 'back to questions' button back to game and clear wrong answers section
-
-// tracker of wrong and correct answers sync to localstorage
+function displayCorrectAnswers(){
+  for(var i = 0; i < correctAnswer.length; i++){
+    var rightAnswer = document.getElementById('wrongAnswer');
+    var theAnswerIs = document.createElement('p');
+    theAnswerIs.textContent = correctAnswer[i];
+    rightAnswer.appendChild(theAnswerIs);
+  }
+};
+displayCorrectAnswers();
 
 //canvas
 var canvas = document.getElementById('canvasHangman'),context = canvas.getContext('2d');
