@@ -61,12 +61,24 @@ questionsObject[0].appendingImage();
 
 for (var i = 0; i < responseArray.length; i++){
   for (var j = 0; j < responseArray[i].length; j++){
+
+    var radioTestOne = document.getElementById('testOne');
+    radioTestOne.textContent = responseArray[i][j++];
+
+    var radioTestTwo = document.getElementById('testTwo');
+    radioTestTwo.textContent = responseArray[i][j++];
+
+    var radioTestThree = document.getElementById('testThree');
+    radioTestThree.textContent = responseArray[i][j++];
+
+    var radioTestFour = document.getElementById('testFour');
+    radioTestFour.textContent = responseArray[i][j];
+
     console.log(responseArray[i][j]);
     // var radioLabels = document.getElementByTagName('label');
     // multAnswers.appendChild(radioLabels);
   }
 }
-
 
 //display wrong answers in wrong anwser section
 
