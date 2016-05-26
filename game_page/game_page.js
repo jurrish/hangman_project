@@ -1,5 +1,6 @@
 var questionsArray = [];
 var promptArray = ['What is the return value of wallOne?', 'What\'s the importance of updateMessage(); ?', 'Which is correct about the following diagram?', 'What is the name of the folder that the stylesheet is saved in?', 'What would the method return if the value of name was changed?', 'Which method converts a number into a string, keeping a specified number of decimals?', 'Which question refers to the html element using the built in document method?', 'What is true about key value pairs?', 'which of these returns the largest integer less than or equal to a given number?', 'If hourNow = 14, what will happen?', 'which element id is being updated with .textContent?' ];
+
 var responseArray = [['15', '40', '8', 'area'],['It updates the variable el', 'It calls the function', 'It is not important', 'It writes text content into the child element'], ['<p> is a child of <div>', '<head> is a grandchild of document', '<html> is a parent of both <head> and <body>', 'all of these are correct'], ['<link>', 'css', 'index.html', 'it auto links'],['It would not affect how the method calculates the return value', 'checkAvailability will not run properly', 'the value of Quay will still print out', 'You would have to delete the entire Object to rename it'], ['isNan', 'toFixed', 'toPrecision', 'toExponential'], ['getElementById', 'checkAvailability', 'Hotel(name, rooms, booked)', '.name'], ['a unique identifier with data attached', 'it is frequently used to change methods using jQuery', 'they do not have them in any other programming language', 'a deprecated version of control flow'], ['only used in object literals', 'only used in object constructors', 'a unique identifier with data attached', 'no one reall knows'], ['Math.ceil()', 'Math.floor()', 'Math.round()', 'Math.random'], ['the user will see a welcome text', 'the user will see a good morning text', 'the user will see a good evening text', 'the user will see a good afternoon text'], ['var el', 'cost', 'total', 'document']];
 
 var correctAnswer = ['15', 'It calls the function', 'all of these are correct', 'css/', 'It would not affect how the method calculates the return value', 'It would not affect how the method calculates the return value', 'toFixed', 'a unique identifier with data attached', 'Math.floor()', 'the user will see a good afternoon text', 'cost'];
@@ -48,20 +49,24 @@ QuesConstructor.prototype.appendingImage = function() {
 questionsObject[0].appendingImage();
 
 //display answers
-function createRadioButtonFromArray(array) {
-  var form = document.getElementById('fromId');
-  for(var i = 0; i < responseArray.length; i++) {
-    var radio = document.createElement('input');
-    radio.type = 'radio';
-    radio.name = 'answers';
-    radio.class = 'radioButt';
-    radio.value = i;
-    radio.id = 'radio' + i;
-    form.appendChild(radio);
+// var multAnswers = function(arr) {
+//   if( typeof(arr) === 'object'){
+//     for (var i = 0; i < arr.length; i++){
+//       multAnswers(arr[i]);
+//       var answerArray = document.getElementById('testOne');
+//     }
+//   }
+// };
+// answerArray.appendChild(multAnswers[1](responseArray[1]));
 
-    document.getElementById('radio' + i).textContent = responseArray[i];
+for (var i = 0; i < responseArray.length; i++){
+  for (var j = 0; j < responseArray[i].length; j++){
+    console.log(responseArray[i][j]);
+    // var radioLabels = document.getElementByTagName('label');
+    // multAnswers.appendChild(radioLabels);
   }
-};
+}
+
 
 //display wrong answers in wrong anwser section
 
