@@ -11,14 +11,14 @@ var promptArray = [ 'What is the return value of wallOne?',
  'which of these returns the largest integer less than or equal to a given number?',
  'If hourNow = 14, what will happen?',
  'which element id is being updated with .textContent?' ];
-
+var i = null;
 var responseArray = [['15', '40', '8', 'area'], ['It updates the variable el', 'It calls the function', 'It is not important', 'It writes text content into the child element'], ['<p> is a child of <div>', '<head> is a grandchild of document', '<html> is a parent of both <head> and <body>', 'all of these are correct'], ['<link>', 'css', 'index.html', 'it auto links'], ['It would not affect how the method calculates the return value', 'checkAvailability will not run properly', 'the value of Quay will still print out', 'You would have to delete the entire Object to rename it'], ['isNan', 'toFixed', 'toPrecision', 'toExponential'],
 ['getElementById', 'checkAvailability', 'Hotel(name, rooms, booked)', '.name'], ['a unique identifier with data attached', 'it is frequently used to change methods using jQuery', 'they do not have them in any other programming language', 'a deprecated version of control flow'], ['No one knows', '70', '14', 'Scott\'s age'], ['Math.ceil()', 'Math.floor()', 'Math.round()', 'Math.random'], ['the user will see a welcome text', 'the user will see a good morning text', 'the user will see a good evening text', 'the user will see a good afternoon text'], ['var el', 'cost', 'total', 'document']];
 
 var correctAnswer = ['15', 'It calls the function', 'all of these are correct', 'css/', 'It would not affect how the method calculates the return value', 'toFixed', 'getElementById', 'a unique identifier with data attached', '70', 'Math.floor()', 'the user will see a good afternoon text', 'cost'];
 var questionsObject = [];
 var answerArray = [];
-var questionNames = ['calculate', 'callQuestion', 'htmlQuestion', 'testQuestion', 'varQuestion', 'childQuestion', 'methodQuestion', 'methodQuestion2', 'multipleObjects', 'objLitQuestion', 'returnQuestion', 'roundDownQuestion'];
+var questionNames = ['calculate', 'callQuestion', 'childQuestion', 'htmlQuestion', 'methodQuestion', 'methodQuestion2', 'multipleObjects', 'objLitQuestion', 'returnQuestion', 'roundDownQuestion', 'testQuestion', 'varQuestion'];
 
 // function Question(name, path) {
 //   this.name = name;
@@ -63,7 +63,7 @@ QuesConstructor.prototype.appendingImage = function() {
   for(var i = 0; i < questionsArray.length; i++) {
     elQuesPic.src = questionsArray[i].path;
     console.log('image pop');
-    elQuesText.textContent = 'hola fucker';
+    elQuesText.textContent = promptArray[i]; //pulling information from the promptArray[i], and will be run from the engine at the end. we will have instances of the object created and then run by a for loop at the end
     elQuesParent.appendChild(elQuesText);
   }
 };
@@ -90,16 +90,16 @@ function displayMultAnswers() {
   }
 };
 displayMultAnswers();
-//display wrong answers in wrong anwser section
-// function displayCorrectAnswers(){
-//   for(var i = 0; i < correctAnswer.length; i++){
-//     var rightAnswer = document.getElementById('wrongAnswer');
-//     var theAnswerIs = document.createElement('p');
-//     theAnswerIs.textContent = correctAnswer[i];
-//     rightAnswer.appendChild(theAnswerIs);
-//   }
-// };
-// displayCorrectAnswers();
+// display wrong answers in wrong anwser section
+function displayCorrectAnswers(){
+  for(var i = 0; i < correctAnswer.length; i++){
+    var rightAnswer = document.getElementById('wrongAnswer');
+    var theAnswerIs = document.createElement('p');
+    theAnswerIs.textContent = correctAnswer[i];
+    rightAnswer.appendChild(theAnswerIs);
+  }
+};
+displayCorrectAnswers();
 //sync submit button to hangman and wrong anwser section
 
 //sync 'back to questions' button back to game and clear wrong answers section
@@ -287,7 +287,7 @@ var newTest = {
         console.log(selectionLabel);
       }
     };
-    if (selectionLabel[0].textContent === questionsArray[0].answer) {
+    if (selectionLabel[0].textContent === questionsArray[i].answer) {
       console.log('You got it right!');
       //Call some method
     } else {
