@@ -272,29 +272,29 @@ var canvasRender = {
   }
 };
 
-var radioButtons = document.getElementsByName('answers');
-var answerForm = document.getElementById('formId');
-var newTest = {
-  selection: null,
-  selectionLabel: null,
-  radioCheck: function() {
-    event.preventDefault();
-    for (var r = 0; r < radioButtons.length; r++) {
-      if (radioButtons[r].checked) {
-        selection = radioButtons[r];
-        selectionLabel = selection.labels;
-        console.log(selection);
-        console.log(selectionLabel);
-      }
-    };
-    if (selectionLabel[0].textContent === questionsArray[i].answer) {
-      console.log('You got it right!');
-      //Call some method
-    } else {
-      console.log('You got it wrong');
-      //Call some method
-    }
-  },
-};
+// var radioButtons = document.getElementsByName('answers');
+// var answerForm = document.getElementById('formId');
+// var newTest = {
+//   selection: null,
+//   selectionLabel: null,
+//   radioCheck: function() {
+//     event.preventDefault();
+//     for (var r = 0; r < radioButtons.length; r++) {
+//       if (radioButtons[r].checked) {
+//         selection = radioButtons[r];
+//         selectionLabel = selection.labels;
+//         console.log(selection);
+//         console.log(selectionLabel);
+//       }
+//     };
+//     if (selectionLabel[0].textContent === questionsArray[i].answer) {
+//       console.log('You got it right!');
+//       //Call some method
+//     } else {
+//       console.log('You got it wrong');
+//       //Call some method
+//     }
+//   },
+// };
 
 answerForm.addEventListener('submit', newTest.radioCheck);

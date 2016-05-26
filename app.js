@@ -1,12 +1,12 @@
-var questionsArray = [];
-var questionNames = ['calculate', 'callQuestion', 'htmlQuestion', 'testQuestion', 'varQuestion'];
-
-function Question(name, path) {
-  this.name = name;
-  this.path = path;
-  questionsArray.push(this);
-}
-
+// var questionsArray = [];
+// var questionNames = ['calculate', 'callQuestion', 'htmlQuestion', 'testQuestion', 'varQuestion'];
+//
+// function Question(name, path) {
+//   this.name = name;
+//   this.path = path;
+//   questionsArray.push(this);
+// }
+//
 if (localStorage.getItem('userAccount') === null) {
   console.log('userAccount array created.');
   var userAccountArray = [];
