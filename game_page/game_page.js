@@ -206,11 +206,11 @@ var newTest = {
   selectionLabel: null,
   appendingImage : function() {
     if (activeUser.questionsAsked === 12) { //Testing
-      console.log('Fuck');
+      console.log('Game won - ending no more question pictures');
       return;
     }
     if (activeUser.questionsWrong === 6) {
-      console.log('Fuck2');
+      console.log('Game lost - not showing new question pictures');
     }
     var elQuesPic = document.getElementById('img');
     var elQuesParent = document.getElementById('test');
@@ -222,11 +222,11 @@ var newTest = {
   },
   displayMultAnswers: function() {
     if (activeUser.questionsAsked === 12) { //Testing
-      console.log('Fuck');
+      console.log('Game won - ending no more question pictures');
       return;
     }
     if (activeUser.questionsWrong === 6) {
-      console.log('Fuck2');
+      console.log('Game lost - not showing new question pictures');
     }
     var j = 0;
     var radioTestOne = document.getElementById('testOne');
@@ -287,6 +287,7 @@ var newTest = {
       //Call some method
     }
   },
+
   wrongCounter: function() {
     activeUser.questionsWrong ++;
     console.log(activeUser.questionsWrong + ' = quests wrong value');
@@ -310,6 +311,7 @@ var newTest = {
       canvasRender.leftArm();
     }
   },
+
   endGame: function() {
     if(activeUser.questionsWrong === 6) {
       answerForm.removeEventListener('submit', newTest.radioCheck);
