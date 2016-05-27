@@ -39,22 +39,25 @@
 
             </fieldset>
             <section id="submitButton">
-              <button class="gameButtons" id='submit' name="submit" hidden>Submit</button> 
+              <button class="gameButtons" id='submit' name="submit" hidden>Submit</button>
               <!-- <button id='submit' name="submit">Submit</button> Was this before. -->
             </section>
           </form>
-          <button class="gameButtons" id="backToQuestion" name="backToQuestion">Back To Question</button>
+          <!-- <button class="gameButtons" id="backToQuestion" name="backToQuestion">Back To Question</button> -->
         </section>
       <section class="container" id="hangman">
         <canvas id='canvasHangman' width="400" height="400">
           you should be using chrome
         </canvas>
       </section>
-      <section class="container" id="wrongAnswer">
-      </section>
-      <section id="backToQuest">
-        <button id="backToQuestion" name="backToQuestion">Back To Question</button>
-      </section>
+      <form 'wrongAnswerForm'>
+        <section class="container" id="wrongAnswer">
+          <p id='correctDisplay'></p>
+        </section>
+        <section id="backToQuest">
+          <button id="backToQuestion" name="backToQuestion">Reset</button>
+        </section>
+      </form>
       <footer class="bottomOfPage">
         <section id="source">
           <p class="sourceMaterial">Duckett, Jon. Javascript &amp; JQuery, Interactive Front-End Web Development</p>

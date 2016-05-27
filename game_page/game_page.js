@@ -192,14 +192,14 @@ var canvasRender = {
 };
 
 function displayCorrectAnswers(){
-  for(var i = 0; i < correctAnswer.length; i++){
-    var rightAnswer = document.getElementById('wrongAnswer');
-    var theAnswerIs = document.createElement('p');
-    theAnswerIs.textContent = correctAnswer[i];
-    rightAnswer.appendChild(theAnswerIs);
-  }
+  // for(var i = 0; i < correctAnswer.length; i++){
+  var rightAnswer = document.getElementById('wrongAnswer');
+  var theAnswerIs = document.getElementById('correctDisplay');
+  theAnswerIs.textContent = correctAnswer[activeUser.questionsAsked];
+  rightAnswer.appendChild(theAnswerIs);
+  // }
 };
-displayCorrectAnswers();
+// displayCorrectAnswers();
 
 var radioButtons = document.getElementsByName('answers');
 var answerForm = document.getElementById('formId');
@@ -215,6 +215,7 @@ var newTest = {
 
   winLoseCheck: function() {
     if (newTest.lost === true) {
+      canvasRender.gameOver();
       submitButton.hidden = true;
       console.log('Game is Over - lost = true');
     }
@@ -281,6 +282,7 @@ var newTest = {
       newTest.nextQuestion();
     } else {
       newTest.wrongCounter();
+      displayCorrectAnswers();
       console.log('You got it wrong');
       newTest.nextQuestion();
     }
