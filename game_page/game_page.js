@@ -206,23 +206,12 @@ var ansEl = document.getElementById('answer');
 var ansPTag = document.createElement('p');
 
 var newTest = {
+
   submitButton: document.getElementById('submit'),
   won: false,
   lost: false,
   selection: null,
   selectionLabel: null,
-
-  winLoseCheck: function() {
-    if (newTest.lost === true) {
-      canvasRender.gameOver(); //New Canvas Render Method
-      submitButton.hidden = true;
-      console.log('Game is Over - lost = true');
-    }
-    if (newTest.won === true) {
-      submitButton.hidden = true;
-      console.log('Game is Won - won = true');
-    }
-  },
 
   appendingImage : function() {
     if (activeUser.questionsAsked === 12) {
@@ -244,7 +233,6 @@ var newTest = {
   },
 
   displayMultAnswers: function() {
-
     var j = 0;
     var radioTestOne = document.getElementById('testOne');
     radioTestOne.textContent = responseArray[activeUser.questionsAsked][j++];
@@ -257,6 +245,30 @@ var newTest = {
 
     var radioTestFour = document.getElementById('testFour');
     radioTestFour.textContent = responseArray[activeUser.questionsAsked][j];
+  },
+
+  wrongCounter: function() {
+    activeUser.questionsWrong += 1;
+    console.log(activeUser.questionsWrong + ' = quests wrong value');
+
+    if(activeUser.questionsWrong === 1){
+      canvasRender.head();
+    }
+    if(activeUser.questionsWrong === 2){
+      canvasRender.torso();
+    }
+    if(activeUser.questionsWrong === 3){
+      canvasRender.rightLeg();
+    }
+    if(activeUser.questionsWrong === 4){
+      canvasRender.leftLeg();
+    }
+    if(activeUser.questionsWrong === 5){
+      canvasRender.rightArm();
+    }
+    if(activeUser.questionsWrong === 6){
+      canvasRender.leftArm();
+    }
   },
 
   nextQuestion : function() {
@@ -287,30 +299,17 @@ var newTest = {
     }
   },
 
-  wrongCounter: function() {
-    activeUser.questionsWrong += 1;
-    console.log(activeUser.questionsWrong + ' = quests wrong value');
-
-    if(activeUser.questionsWrong === 1){
-      canvasRender.head();
+  winLoseCheck: function() {
+    if (newTest.lost === true) {
+      canvasRender.gameOver(); //New Canvas Render Method
+      submitButton.hidden = true;
+      console.log('Game is Over - lost = true');
     }
-    if(activeUser.questionsWrong === 2){
-      canvasRender.torso();
-    }
-    if(activeUser.questionsWrong === 3){
-      canvasRender.rightLeg();
-    }
-    if(activeUser.questionsWrong === 4){
-      canvasRender.leftLeg();
-    }
-    if(activeUser.questionsWrong === 5){
-      canvasRender.rightArm();
-    }
-    if(activeUser.questionsWrong === 6){
-      canvasRender.leftArm();
+    if (newTest.won === true) {
+      submitButton.hidden = true;
+      console.log('Game is Won - won = true');
     }
   },
-
   //Something to show the correct answer to a question that is answered wrong.
   //Listener event and functionality for back to questions button.
   //Update user account array and active user in localStorage.
@@ -320,7 +319,6 @@ var newTest = {
 
 window.onload = function(){
   newTest.submitButton.hidden = false;
-  //get activeUser
   activeUser = JSON.parse(localStorage.getItem('activeUser'));
   newTest.displayMultAnswers();
   newTest.appendingImage();
