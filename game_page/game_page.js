@@ -248,26 +248,26 @@ var newTest = {
   },
 
   wrongCounter: function() {
-    activeUser.questionsWrong += 1;
     console.log(activeUser.questionsWrong + ' = quests wrong value');
 
-    if(activeUser.questionsWrong === 1){
+    if(activeUser.questionsWrong >= 1){
       canvasRender.head();
     }
-    if(activeUser.questionsWrong === 2){
+    if(activeUser.questionsWrong >= 2){
       canvasRender.torso();
     }
-    if(activeUser.questionsWrong === 3){
+    if(activeUser.questionsWrong >= 3){
       canvasRender.rightLeg();
     }
-    if(activeUser.questionsWrong === 4){
+    if(activeUser.questionsWrong >= 4){
       canvasRender.leftLeg();
     }
-    if(activeUser.questionsWrong === 5){
+    if(activeUser.questionsWrong >= 5){
       canvasRender.rightArm();
     }
     if(activeUser.questionsWrong === 6){
       canvasRender.leftArm();
+      canvasRender.gameOver();
     }
   },
 
@@ -275,7 +275,7 @@ var newTest = {
     activeUser.questionsAsked += 1;
     newTest.displayMultAnswers();
     newTest.appendingImage();
-    accountFunctions.updateLocalStorage();//----------------------------------------------------------------------------------2:00pm new
+    accountFunctions.updateLocalStorage();
     accountFunctions.getLocalStorage();
   },
 
@@ -292,8 +292,10 @@ var newTest = {
     };
     if (selectionLabel[0].textContent === questionsArray[activeUser.questionsAsked].answer) {
       console.log('You got it right!');
+      activeUser.questionsRight += 1;
       newTest.nextQuestion();
     } else {
+      activeUser.questionsWrong += 1;
       newTest.wrongCounter();
       displayCorrectAnswers();
       console.log('You got it wrong');
@@ -303,7 +305,6 @@ var newTest = {
 
   winLoseCheck: function() {
     if (newTest.lost === true) {
-      canvasRender.gameOver(); //New Canvas Render Method
       submitButton.hidden = true;
       console.log('Game is Over - lost = true');
     }
@@ -314,19 +315,18 @@ var newTest = {
   },
   //Something to show the correct answer to a question that is answered wrong.
   //Listener event and functionality for back to questions button.
-  //Update user account array and active user in localStorage.
   //Maybe have a reset function at the end of the game to play again.
 
 };
 
 window.onload = function(){
   activeUser = JSON.parse(localStorage.getItem('activeUser'));
-  accountFunctions.getLocalStorage();//------------------------------------------------------------------------------1:59pm new
-  // accountFunctions.updateLocalStorage();//TESTINGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG
+  accountFunctions.getLocalStorage();
   newTest.submitButton.hidden = false;
   newTest.displayMultAnswers();
   newTest.appendingImage();
   canvasRender.gallows();
+  newTest.wrongCounter();
 };
 
 answerForm.addEventListener('submit', newTest.radioCheck);
