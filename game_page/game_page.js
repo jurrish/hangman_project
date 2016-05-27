@@ -210,6 +210,7 @@ var newTest = {
   selectionLabel: null,
   winLoseCheck: function() {
     if (newTest.lost === true) {
+      submitButton.hidden = true;
       console.log('Game is Over - lost = true');
       // newTest.submitButton.hidden = true;
       // formEl.removeEventListener('submit', newTest.radioCheck);
@@ -224,7 +225,8 @@ var newTest = {
     }
     if (activeUser.questionsWrong === 6) {
       console.log('Game lost - not showing new question pictures');
-      return lost = true;
+      newTest.lost = true;
+      return;
     }
     var elQuesPic = document.getElementById('img');
     var elQuesParent = document.getElementById('test');
@@ -241,6 +243,7 @@ var newTest = {
     }
     if (activeUser.questionsWrong === 6) {
       console.log('Game lost - not showing new question pictures');
+      return;
     }
     var j = 0;
     var radioTestOne = document.getElementById('testOne');
@@ -278,8 +281,8 @@ var newTest = {
 
   nextQuestion : function() {
     activeUser.questionsAsked += 1;
-    // newTest.endGame();
-    // newTest.winGame();
+    newTest.endGame();
+    newTest.winGame();
     newTest.displayMultAnswers();
     newTest.appendingImage();
   },
@@ -307,7 +310,7 @@ var newTest = {
   },
 
   wrongCounter: function() {
-    activeUser.questionsWrong ++;
+    activeUser.questionsWrong += 1;
     console.log(activeUser.questionsWrong + ' = quests wrong value');
 
     if(activeUser.questionsWrong === 1){
@@ -342,9 +345,8 @@ var newTest = {
 };
 
 window.onload = function(){
-  // newTest.submitButton.hidden = false;
-  //get activeUser
   newTest.submitButton.hidden = false;
+  //get activeUser
   activeUser = JSON.parse(localStorage.getItem('activeUser'));
   newTest.displayMultAnswers();
   newTest.appendingImage();
