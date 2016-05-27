@@ -11,7 +11,7 @@ var promptArray = [ 'What is the return value of wallOne?',
  'which of these returns the largest integer less than or equal to a given number?',
  'If hourNow = 14, what will happen?',
  'which element id is being updated with .textContent?' ];
-var responseArray = [['15', '40', '8', 'area'], ['It updates the variable el', 'It calls the function', 'It is not important', 'It writes text content into the child element'], ['<p> is a child of <div>', '<head> is a grandchild of document', '<html> is a parent of both <head> and <body>', 'all of these are correct'], ['<link>', 'css', 'index.html', 'it auto links'], ['It would not affect how the method calculates the return value', 'checkAvailability will not run properly', 'the value of Quay will still print out', 'You would have to delete the entire Object to rename it'], ['isNan', 'toFixed', 'toPrecision', 'toExponential'],
+var responseArray = [['15', '40', '8', 'area'], ['It updates the variable el', 'It calls the function', 'It is not important', 'It writes text content into the child element'], ['<p> is a child of <div>', '<head> is a grandchild of document', '<html> is a parent of both <head> and <body>', 'all of these are correct'], ['<link>', 'css/', 'index.html', 'it auto links'], ['It would not affect how the method calculates the return value', 'checkAvailability will not run properly', 'the value of Quay will still print out', 'You would have to delete the entire Object to rename it'], ['isNan', 'toFixed', 'toPrecision', 'toExponential'],
 ['getElementById', 'checkAvailability', 'Hotel(name, rooms, booked)', '.name'], ['a unique identifier with data attached', 'it is frequently used to change methods using jQuery', 'they do not have them in any other programming language', 'a deprecated version of control flow'], ['No one knows', '70', '14', 'Scott\'s age'], ['Math.ceil()', 'Math.floor()', 'Math.round()', 'Math.random'], ['the user will see a welcome text', 'the user will see a good morning text', 'the user will see a good evening text', 'the user will see a good afternoon text'], ['var el', 'cost', 'total', 'document']];
 
 var correctAnswer = ['15', 'It calls the function', 'all of these are correct', 'css/', 'It would not affect how the method calculates the return value', 'toFixed', 'getElementById', 'a unique identifier with data attached', '70', 'Math.floor()', 'the user will see a good afternoon text', 'cost'];
@@ -307,6 +307,8 @@ var canvasRender = {
 //questionsObject[0].appendingImage();
 var radioButtons = document.getElementsByName('answers');
 var answerForm = document.getElementById('formId');
+var ansEl = document.getElementById('answer');
+var ansPTag = document.createElement('p');
 var newTest = {
   // i: null,
   selection: null,
@@ -319,6 +321,49 @@ var newTest = {
     console.log('image pop');
     elQuesText.textContent = promptArray[activeUser.questionsAsked];
     elQuesParent.appendChild(elQuesText);
+  },
+  displayMultAnswers: function() {
+    // for (var i = 0; i < responseArray.length; i++){
+    // for (var j = 0; j < responseArray[activeUser.questionsAsked].length; j++){
+    //
+    var j = 0;
+    var radioTestOne = document.getElementById('testOne');
+    radioTestOne.textContent = responseArray[activeUser.questionsAsked][j++];
+
+    var radioTestTwo = document.getElementById('testTwo');
+    radioTestTwo.textContent = responseArray[activeUser.questionsAsked][j++];
+
+    var radioTestThree = document.getElementById('testThree');
+    radioTestThree.textContent = responseArray[activeUser.questionsAsked][j++];
+
+    var radioTestFour = document.getElementById('testFour');
+    radioTestFour.textContent = responseArray[activeUser.questionsAsked][j];
+        //console.log(responseArray[i][j]);
+    // }
+  },
+  endGame: function() {
+    if(activeUser.questionsWrong === 6) {
+      // answerForm.removeEventListener('submit', newTest.radioCheck);
+      answerForm.hidden = true;
+      ansEl.appendChild(ansPTag).textContent = 'Try Again!';
+      console.log('endGame method was called');
+      // return;
+    }
+  },
+  winGame: function() {
+    if(activeUser.questionsAsked === 12){
+      answerForm.hidden = true;
+      ansEl.appendChild(ansPTag).textContnt = 'Good Job!';
+      console.log('this part is working');
+      // return;
+    }
+  },
+  nextQuestion : function() {
+    activeUser.questionsAsked += 1;
+    newTest.endGame();
+    newTest.winGame();
+    newTest.displayMultAnswers();
+    newTest.appendingImage();
   },
   radioCheck: function() {
     event.preventDefault();
@@ -341,30 +386,6 @@ var newTest = {
       newTest.nextQuestion();
       //Call some method
     }
-  },
-  displayMultAnswers: function() {
-    // for (var i = 0; i < responseArray.length; i++){
-    for (var j = 0; j < responseArray[activeUser.questionsAsked].length; j++){
-
-      var radioTestOne = document.getElementById('testOne');
-      radioTestOne.textContent = responseArray[activeUser.questionsAsked][j++];
-
-      var radioTestTwo = document.getElementById('testTwo');
-      radioTestTwo.textContent = responseArray[activeUser.questionsAsked][j++];
-
-      var radioTestThree = document.getElementById('testThree');
-      radioTestThree.textContent = responseArray[activeUser.questionsAsked][j++];
-
-      var radioTestFour = document.getElementById('testFour');
-      radioTestFour.textContent = responseArray[activeUser.questionsAsked][j];
-        //console.log(responseArray[i][j]);
-    }
-  },
-  nextQuestion : function() {
-    activeUser.questionsAsked += 1;
-    newTest.endGame();
-    newTest.displayMultAnswers();
-    newTest.appendingImage();
   },
   wrongCounter: function() {
     activeUser.questionsWrong ++;
