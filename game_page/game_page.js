@@ -184,6 +184,10 @@ var canvasRender = {
     context.lineWidth = 8;
     context.strokeStyle = 'white';
     context.stroke();
+  },
+  gameOver: function(){
+    context.fillStyle = 'red';
+    context.fillRect(0, 0, canvas.width, canvas.height);
   }
 };
 
