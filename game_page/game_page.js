@@ -173,6 +173,7 @@ var canvasRender = {
     context.stroke();
   },
   leftArm: function() {
+    //left arm
     var xLeftArm = canvas.width / 1.49;
     var yLeftArm = canvas.height / 1.4;
     var armLeftRadius = 85;
@@ -186,20 +187,18 @@ var canvasRender = {
     context.stroke();
   },
   gameOver: function(){
+    //red fill
     context.fillStyle = 'red';
     context.fillRect(0, 0, canvas.width, canvas.height);
   }
 };
 
 function displayCorrectAnswers(){
-  // for(var i = 0; i < correctAnswer.length; i++){
   var rightAnswer = document.getElementById('wrongAnswer');
   var theAnswerIs = document.getElementById('correctDisplay');
   theAnswerIs.textContent = correctAnswer[activeUser.questionsAsked];
   rightAnswer.appendChild(theAnswerIs);
-  // }
 };
-// displayCorrectAnswers();
 
 var radioButtons = document.getElementsByName('answers');
 var answerForm = document.getElementById('formId');
@@ -215,7 +214,7 @@ var newTest = {
 
   winLoseCheck: function() {
     if (newTest.lost === true) {
-      canvasRender.gameOver();
+      canvasRender.gameOver(); //New Canvas Render Method
       submitButton.hidden = true;
       console.log('Game is Over - lost = true');
     }
