@@ -201,6 +201,7 @@ var radioButtons = document.getElementsByName('answers');
 var answerForm = document.getElementById('formId');
 var ansEl = document.getElementById('answer');
 var ansPTag = document.createElement('p');
+
 var newTest = {
   submitButton: document.getElementById('submit'),
   // this.submitButton.hidden: false,
@@ -212,15 +213,16 @@ var newTest = {
     if (newTest.lost === true) {
       submitButton.hidden = true;
       console.log('Game is Over - lost = true');
-      // newTest.submitButton.hidden = true;
-      // formEl.removeEventListener('submit', newTest.radioCheck);
-      // newTest.loseGame();
-      // newTest.endGame();
+    }
+    if (newTest.won === true) {
+      submitButton.hidden = true;
+      console.log('Game is Won - won = true');
     }
   },
   appendingImage : function() {
     if (activeUser.questionsAsked === 12) { //Testing
       console.log('Game won - ending no more question pictures');
+      newTest.won = true;
       return;
     }
     if (activeUser.questionsWrong === 6) {
