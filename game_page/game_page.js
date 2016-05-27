@@ -318,8 +318,9 @@ var newTest = {
 };
 
 window.onload = function(){
-  newTest.submitButton.hidden = false;
   activeUser = JSON.parse(localStorage.getItem('activeUser'));
+  accountFunctions.updateLocalStorage();//TESTINGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG
+  newTest.submitButton.hidden = false;
   newTest.displayMultAnswers();
   newTest.appendingImage();
   canvasRender.gallows();
