@@ -17,7 +17,7 @@ var responseArray = [['15', '40', '8', 'area'], ['It updates the variable el', '
 var correctAnswer = ['15', 'It calls the function', 'all of these are correct', 'css/', 'It would not affect how the method calculates the return value', 'toFixed', 'getElementById', 'a unique identifier with data attached', '70', 'Math.floor()', 'the user will see a good afternoon text', 'cost'];
 var questionsObject = [];
 var answerArray = [];
-var questionNames = ['calculate', 'callQuestion', 'childQuestion', 'htmlQuestion', 'methodQuestion', 'methodQuestion2', 'multipleObjects', 'objLitQuestion', 'returnQuestion', 'roundDownQuestion', 'testQuestion', 'varQuestion'];
+var questionNames = ['calculate', 'callQuestion', 'childQuestion', 'htmlQuestion', 'methodQuestion', 'methodQuestion2', 'multipleObjects', 'objLitQuestion', 'returnQuestion', 'roundDownQuestion', 'testquestion', 'varQuestion'];
 
 // function Question(name, path) {
 //   this.name = name;
@@ -306,6 +306,7 @@ var newTest = {
       //Call some method
       newTest.nextQuestion();
     } else {
+      newTest.wrongCounter();
       console.log('You got it wrong');
       newTest.nextQuestion();
       //Call some method
@@ -331,8 +332,19 @@ var newTest = {
   },
   nextQuestion : function() {
     activeUser.questionsAsked += 1;
+    newTest.endGame();
     newTest.displayMultAnswers();
     newTest.appendingImage();
+  },
+  wrongCounter: function() {
+    activeUser.questionsWrong ++;
+    console.log(activeUser.questionsWrong + ' = quests wrong value');
+  },
+  endGame: function() {
+    if(activeUser.questionsWrong === 6) {
+      answerForm.removeEventListener('submit', newTest.radioCheck);
+      console.log('endGame method was called');
+    }
   }
   // },
 };

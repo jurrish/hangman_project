@@ -22,6 +22,7 @@ function UserAccount(userName, passWord) {
   this.userName = userName;
   this.passWord = passWord;
   this.questionsAsked = 0;
+  this.questionsWrong = 0;
   userAccountArray.push(this);
   console.log('New user created! UserAccount object constructor was used.');
 }
