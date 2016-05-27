@@ -204,11 +204,11 @@ var ansPTag = document.createElement('p');
 
 var newTest = {
   submitButton: document.getElementById('submit'),
-  // this.submitButton.hidden: false,
   won: false,
   lost: false,
   selection: null,
   selectionLabel: null,
+
   winLoseCheck: function() {
     if (newTest.lost === true) {
       submitButton.hidden = true;
@@ -219,15 +219,14 @@ var newTest = {
       console.log('Game is Won - won = true');
     }
   },
+
   appendingImage : function() {
-    if (activeUser.questionsAsked === 12) { //Testing
-      console.log('Game won - ending no more question pictures');////////////////
+    if (activeUser.questionsAsked === 12) {
       ansEl.appendChild(ansPTag).textContent = 'Good Job!';
       newTest.won = true;
       return;
     }
     if (activeUser.questionsWrong === 6) {
-      console.log('Game lost - not showing new question pictures');////////////
       ansEl.appendChild(ansPTag).textContent = 'Game Over';
       newTest.lost = true;
       return;
@@ -236,19 +235,12 @@ var newTest = {
     var elQuesParent = document.getElementById('test');
     var elQuesText = document.getElementById('question');
     elQuesPic.src = questionsArray[activeUser.questionsAsked].path;
-    console.log('image pop');
     elQuesText.textContent = promptArray[activeUser.questionsAsked];
     elQuesParent.appendChild(elQuesText);
   },
+
   displayMultAnswers: function() {
-    if (activeUser.questionsAsked === 12) { //Testing
-      console.log('Game won - ending no more question pictures');
-      return;
-    }
-    if (activeUser.questionsWrong === 6) {
-      console.log('Game lost - not showing new question pictures');
-      return;
-    }
+
     var j = 0;
     var radioTestOne = document.getElementById('testOne');
     radioTestOne.textContent = responseArray[activeUser.questionsAsked][j++];
@@ -262,34 +254,13 @@ var newTest = {
     var radioTestFour = document.getElementById('testFour');
     radioTestFour.textContent = responseArray[activeUser.questionsAsked][j];
   },
-  // endGame: function() {
-  //   if(activeUser.questionsWrong === 6) {
-  //     answerForm.hidden = true;
-  //     ansEl.appendChild(ansPTag).textContent = 'Try Again!';
-  //     console.log('endGame method was called');
-  //   }
-  // },
-  // winGame: function() {
-  //   if(activeUser.questionsAsked === 12){
-  //     answerForm.hidden = true; //not working
-  //     ansEl.appendChild(ansPTag).textContent = 'Good Job!';
-  //     console.log('this part is working');
-  //   }
-  // },
-  //
-  // loseGame: function() {
-  //   answerForm.hidden = true;
-  //   ansEl.appendChild(ansPTag).textContent = 'Game Over';
-  //   console.log('newTest.loseGame was called');
-  // },
-  //
+
   nextQuestion : function() {
     activeUser.questionsAsked += 1;
-    // newTest.endGame();
-    // newTest.winGame();
     newTest.displayMultAnswers();
     newTest.appendingImage();
   },
+
   radioCheck: function() {
     event.preventDefault();
     for (var r = 0; r < radioButtons.length; r++) {
@@ -303,13 +274,11 @@ var newTest = {
     };
     if (selectionLabel[0].textContent === questionsArray[activeUser.questionsAsked].answer) {
       console.log('You got it right!');
-      //Call some method
       newTest.nextQuestion();
     } else {
       newTest.wrongCounter();
       console.log('You got it wrong');
       newTest.nextQuestion();
-      //Call some method
     }
   },
 
@@ -336,18 +305,13 @@ var newTest = {
       canvasRender.leftArm();
     }
   },
-};
 
-//   endGame: function() {
-//     if(activeUser.questionsWrong === 6) {
-//       console.log('endGame method was called');
-//     } else if(activeUser.questionsAsked === 12) {
-//       answerForm.hidden = true;
-//       ansEl.appendChild(ansPTag).textContnt = 'Good Job!';
-//       console.log('this part is working');
-//     }
-//   }
-// };
+  //Something to show the correct answer to a question that is answered wrong.
+  //Listener event and functionality for back to questions button.
+  //Update user account array and active user in localStorage.
+  //Maybe have a reset function at the end of the game to play again.
+
+};
 
 window.onload = function(){
   newTest.submitButton.hidden = false;
