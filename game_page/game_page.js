@@ -19,18 +19,6 @@ var questionsObject = [];
 var answerArray = [];
 var questionNames = ['calculate', 'callQuestion', 'childQuestion', 'htmlQuestion', 'methodQuestion', 'methodQuestion2', 'multipleObjects', 'objLitQuestion', 'returnQuestion', 'roundDownQuestion', 'testquestion', 'varQuestion'];
 
-// function Question(name, path) {
-//   this.name = name;
-//   this.path = path;
-//   questionsArray.push(this);
-// }
-
-// (function addingPhotos() {
-//   for (var i = 0; i < questionNames.length; i++) {
-//     new Question(questionNames[i], 'questions/' + questionNames[i] + '.png');
-//   }
-// })();
-
 function QuesConstructor(name, path, quest, answer, allQuestions) {
   this.name = name;
   this.path = path;
@@ -38,15 +26,8 @@ function QuesConstructor(name, path, quest, answer, allQuestions) {
   this.quest = quest;
   this.answer = answer;
   this.allQuestions = allQuestions;
-  // this.canvas = canvas;
   questionsObject.push(this);
 };
-
-// function addingPhotos() {
-//   for (var i = 0; i < questionNames.length; i++) {
-//     new Question(questionNames[i], 'questions/' + questionNames[i] + '.png');
-//   }
-// };
 
 function addingQuestions() {
   for(var i = 0; i < promptArray.length; i++) {
@@ -55,101 +36,7 @@ function addingQuestions() {
 };
 addingQuestions();
 
-// QuesConstructor.prototype.appendingImage = function() {
-//   var elQuesPic = document.getElementById('img');
-//   var elQuesParent = document.getElementById('test');
-//   var elQuesText = document.createElement('p');
-//   for(var i = 0; i < questionsArray.length; i++) {
-//     elQuesPic.src = questionsArray[i].path;
-//     console.log('image pop');
-//     elQuesText.textContent = promptArray[i]; //pulling information from the promptArray[i], and will be run from the engine at the end. we will have instances of the object created and then run by a for loop at the end
-//     elQuesParent.appendChild(elQuesText);
-//   }
-// };
-// questionsObject[0].appendingImage();
-//
-//display answers
-// <<<<<<< HEAD
-// function displayMultAnswers() {
-//   for (var i = 0; i < responseArray.length; i++){
-//     for (var j = 0; j < responseArray[i].length; j++){
-//
-//       var radioTestOne = document.getElementById('testOne');
-//       radioTestOne.textContent = responseArray[i][j++];
-//
-//       var radioTestTwo = document.getElementById('testTwo');
-//       radioTestTwo.textContent = responseArray[i][j++];
-//
-//       var radioTestThree = document.getElementById('testThree');
-//       radioTestThree.textContent = responseArray[i][j++];
-//
-//       var radioTestFour = document.getElementById('testFour');
-//       radioTestFour.textContent = responseArray[i][j];
-//       //console.log(responseArray[i][j]);
-//     }
-//   }
-// };
-// displayMultAnswers();
-// =======
-// function displayMultAnswers() {
-//   for (var i = 0; i < responseArray.length; i++){
-//     for (var j = 0; j < responseArray[i].length; j++){
-//
-//       var radioTestOne = document.getElementById('testOne');
-//       radioTestOne.textContent = responseArray[i][j++];
-//
-//       var radioTestTwo = document.getElementById('testTwo');
-//       radioTestTwo.textContent = responseArray[i][j++];
-//
-//       var radioTestThree = document.getElementById('testThree');
-//       radioTestThree.textContent = responseArray[i][j++];
-//
-//       var radioTestFour = document.getElementById('testFour');
-//       radioTestFour.textContent = responseArray[i][j];
-//       //console.log(responseArray[i][j]);
-//     }
-//   }
-// };
-// displayMultAnswers();
-// // display wrong answers in wrong anwser section
-// function displayCorrectAnswers(){
-//   for(var i = 0; i < correctAnswer.length; i++){
-//     var rightAnswer = document.getElementById('wrongAnswer');
-//     var theAnswerIs = document.createElement('p');
-//     theAnswerIs.textContent = correctAnswer[i];
-//     rightAnswer.appendChild(theAnswerIs);
-//   }
-// };
-// displayCorrectAnswers();
-//sync submit button to hangman and wrong anwser section
-
-//sync 'back to questions' button back to game and clear wrong answers section
-//>>>>>>> master
-
-//display wrong answers in wrong anwser section
-function displayCorrectAnswers(){
-  for(var i = 0; i < correctAnswer.length; i++){
-    var rightAnswer = document.getElementById('wrongAnswer');
-    var theAnswerIs = document.createElement('p');
-    theAnswerIs.textContent = correctAnswer[i];
-    rightAnswer.appendChild(theAnswerIs);
-  }
-};
-displayCorrectAnswers();
-
-//canvas
 var canvas = document.getElementById('canvasHangman'),context = canvas.getContext('2d');
-// window.onload = function(){
-//   //get activeUser
-//   activeUser = JSON.parse(localStorage.getItem('activeUser'));
-//   canvasRender.gallows();
-//   canvasRender.head();
-//   canvasRender.torso();
-//   canvasRender.rightLeg();
-//   canvasRender.leftLeg();
-//   canvasRender.rightArm();
-//   canvasRender.leftArm();
-// };
 
 var canvasRender = {
   gallows: function(){
@@ -171,11 +58,6 @@ var canvasRender = {
     context.strokeStyle = 'white';
     context.lineWidth = 7;
     context.strokeRect(220,100,0,50);
-  // angle support
-    // context.strokeStyle = 'white';
-    // context.lineWidth = 10;
-    // context.rotate(Math.PI / 4);
-    // context.strokeRect(295, -155, 46, 0);
   },
 
   head: function() {
@@ -308,28 +190,61 @@ var canvasRender = {
     context.fillRect(0, 0, canvas.width, canvas.height);
   }
 };
-//questionsObject[0].appendingImage();
+
+function displayCorrectAnswers(){
+  for(var i = 0; i < correctAnswer.length; i++){
+    var rightAnswer = document.getElementById('wrongAnswer');
+    var theAnswerIs = document.createElement('p');
+    theAnswerIs.textContent = correctAnswer[i];
+    rightAnswer.appendChild(theAnswerIs);
+  }
+};
+displayCorrectAnswers();
+
 var radioButtons = document.getElementsByName('answers');
 var answerForm = document.getElementById('formId');
 var ansEl = document.getElementById('answer');
 var ansPTag = document.createElement('p');
+
 var newTest = {
-  // i: null,
+  submitButton: document.getElementById('submit'),
+  won: false,
+  lost: false,
   selection: null,
   selectionLabel: null,
+
+  winLoseCheck: function() {
+    if (newTest.lost === true) {
+      submitButton.hidden = true;
+      console.log('Game is Over - lost = true');
+    }
+    if (newTest.won === true) {
+      submitButton.hidden = true;
+      console.log('Game is Won - won = true');
+    }
+  },
+
   appendingImage : function() {
+    if (activeUser.questionsAsked === 12) {
+      ansEl.appendChild(ansPTag).textContent = 'Good Job!';
+      newTest.won = true;
+      return;
+    }
+    if (activeUser.questionsWrong === 6) {
+      ansEl.appendChild(ansPTag).textContent = 'Game Over';
+      newTest.lost = true;
+      return;
+    }
     var elQuesPic = document.getElementById('img');
     var elQuesParent = document.getElementById('test');
     var elQuesText = document.getElementById('question');
     elQuesPic.src = questionsArray[activeUser.questionsAsked].path;
-    console.log('image pop');
     elQuesText.textContent = promptArray[activeUser.questionsAsked];
     elQuesParent.appendChild(elQuesText);
   },
+
   displayMultAnswers: function() {
-    // for (var i = 0; i < responseArray.length; i++){
-    // for (var j = 0; j < responseArray[activeUser.questionsAsked].length; j++){
-    //
+
     var j = 0;
     var radioTestOne = document.getElementById('testOne');
     radioTestOne.textContent = responseArray[activeUser.questionsAsked][j++];
@@ -342,33 +257,14 @@ var newTest = {
 
     var radioTestFour = document.getElementById('testFour');
     radioTestFour.textContent = responseArray[activeUser.questionsAsked][j];
-        //console.log(responseArray[i][j]);
-    // }
   },
-  endGame: function() {
-    if(activeUser.questionsWrong === 6) {
-      // answerForm.removeEventListener('submit', newTest.radioCheck);
-      answerForm.hidden = true;
-      ansEl.appendChild(ansPTag).textContent = 'Try Again!';
-      console.log('endGame method was called');
-      // return;
-    }
-  },
-  winGame: function() {
-    if(activeUser.questionsAsked === 12){
-      answerForm.hidden = true;
-      ansEl.appendChild(ansPTag).textContnt = 'Good Job!';
-      console.log('this part is working');
-      // return;
-    }
-  },
+
   nextQuestion : function() {
     activeUser.questionsAsked += 1;
-    newTest.endGame();
-    newTest.winGame();
     newTest.displayMultAnswers();
     newTest.appendingImage();
   },
+
   radioCheck: function() {
     event.preventDefault();
     for (var r = 0; r < radioButtons.length; r++) {
@@ -382,17 +278,16 @@ var newTest = {
     };
     if (selectionLabel[0].textContent === questionsArray[activeUser.questionsAsked].answer) {
       console.log('You got it right!');
-      //Call some method
       newTest.nextQuestion();
     } else {
       newTest.wrongCounter();
       console.log('You got it wrong');
       newTest.nextQuestion();
-      //Call some method
     }
   },
+
   wrongCounter: function() {
-    activeUser.questionsWrong ++;
+    activeUser.questionsWrong += 1;
     console.log(activeUser.questionsWrong + ' = quests wrong value');
 
     if(activeUser.questionsWrong === 1){
@@ -414,38 +309,22 @@ var newTest = {
       canvasRender.leftArm();
     }
   },
-  endGame: function() {
-    if(activeUser.questionsWrong === 6) {
-      answerForm.removeEventListener('submit', newTest.radioCheck);
-      console.log('endGame method was called');
-    }
-  }
-  // },
+
+  //Something to show the correct answer to a question that is answered wrong.
+  //Listener event and functionality for back to questions button.
+  //Update user account array and active user in localStorage.
+  //Maybe have a reset function at the end of the game to play again.
+
 };
 
 window.onload = function(){
+  newTest.submitButton.hidden = false;
   //get activeUser
   activeUser = JSON.parse(localStorage.getItem('activeUser'));
   newTest.displayMultAnswers();
   newTest.appendingImage();
   canvasRender.gallows();
-  // canvasRender.head();
-  // canvasRender.torso();
-  // canvasRender.rightLeg();
-  // canvasRender.leftLeg();
-  // canvasRender.rightArm();
-  // canvasRender.leftArm();
 };
-answerForm.addEventListener('submit', newTest.radioCheck);
 
-// displayMultAnswers();
-// // display wrong answers in wrong anwser section
-// function displayCorrectAnswers(){
-//   for(var i = 0; i < correctAnswer.length; i++){
-//     var rightAnswer = document.getElementById('wrongAnswer');
-//     var theAnswerIs = document.createElement('p');
-//     theAnswerIs.textContent = correctAnswer[i];
-//     rightAnswer.appendChild(theAnswerIs);
-//   }
-// };
-// displayCorrectAnswers();
+answerForm.addEventListener('submit', newTest.radioCheck);
+answerForm.addEventListener('submit', newTest.winLoseCheck);
