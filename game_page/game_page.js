@@ -304,9 +304,7 @@ var canvasRender = {
     context.stroke();
   }
 };
-
-// questionsObject[0].appendingImage();
-
+//questionsObject[0].appendingImage();
 var radioButtons = document.getElementsByName('answers');
 var answerForm = document.getElementById('formId');
 var ansEl = document.getElementById('answer');
@@ -367,10 +365,6 @@ var newTest = {
     newTest.displayMultAnswers();
     newTest.appendingImage();
   },
-  wrongCounter: function() {
-    activeUser.questionsWrong ++;
-    console.log(activeUser.questionsWrong + ' = quests wrong value');
-  },
   radioCheck: function() {
     event.preventDefault();
     for (var r = 0; r < radioButtons.length; r++) {
@@ -393,6 +387,35 @@ var newTest = {
       //Call some method
     }
   },
+  wrongCounter: function() {
+    activeUser.questionsWrong ++;
+    console.log(activeUser.questionsWrong + ' = quests wrong value');
+
+    if(activeUser.questionsWrong === 1){
+      canvasRender.head();
+    }
+    if(activeUser.questionsWrong === 2){
+      canvasRender.torso();
+    }
+    if(activeUser.questionsWrong === 3){
+      canvasRender.rightLeg();
+    }
+    if(activeUser.questionsWrong === 4){
+      canvasRender.leftLeg();
+    }
+    if(activeUser.questionsWrong === 5){
+      canvasRender.rightArm();
+    }
+    if(activeUser.questionsWrong === 6){
+      canvasRender.leftArm();
+    }
+  },
+  endGame: function() {
+    if(activeUser.questionsWrong === 6) {
+      answerForm.removeEventListener('submit', newTest.radioCheck);
+      console.log('endGame method was called');
+    }
+  }
   // },
 };
 
@@ -402,12 +425,12 @@ window.onload = function(){
   newTest.displayMultAnswers();
   newTest.appendingImage();
   canvasRender.gallows();
-  canvasRender.head();
-  canvasRender.torso();
-  canvasRender.rightLeg();
-  canvasRender.leftLeg();
-  canvasRender.rightArm();
-  canvasRender.leftArm();
+  // canvasRender.head();
+  // canvasRender.torso();
+  // canvasRender.rightLeg();
+  // canvasRender.leftLeg();
+  // canvasRender.rightArm();
+  // canvasRender.leftArm();
 };
 answerForm.addEventListener('submit', newTest.radioCheck);
 
