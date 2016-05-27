@@ -202,8 +202,15 @@ var answerForm = document.getElementById('formId');
 var ansEl = document.getElementById('answer');
 var ansPTag = document.createElement('p');
 var newTest = {
+  won: false,
+  lost: false,
   selection: null,
   selectionLabel: null,
+  winLoseCheck: function() {
+    if (newTest.lost = true) {
+      console.log('Game is Over - lost = true');
+    }
+  },
   appendingImage : function() {
     if (activeUser.questionsAsked === 12) { //Testing
       console.log('Game won - ending no more question pictures');
@@ -211,6 +218,7 @@ var newTest = {
     }
     if (activeUser.questionsWrong === 6) {
       console.log('Game lost - not showing new question pictures');
+      return lost = true;
     }
     var elQuesPic = document.getElementById('img');
     var elQuesParent = document.getElementById('test');
@@ -243,11 +251,9 @@ var newTest = {
   },
   endGame: function() {
     if(activeUser.questionsWrong === 6) {
-      // answerForm.removeEventListener('submit', newTest.radioCheck);
       answerForm.hidden = true;
       ansEl.appendChild(ansPTag).textContent = 'Try Again!';
       console.log('endGame method was called');
-      // return;
     }
   },
   winGame: function() {
@@ -255,7 +261,6 @@ var newTest = {
       answerForm.hidden = true;
       ansEl.appendChild(ansPTag).textContnt = 'Good Job!';
       console.log('this part is working');
-      // return;
     }
   },
   nextQuestion : function() {
@@ -334,3 +339,4 @@ window.onload = function(){
 };
 
 answerForm.addEventListener('submit', newTest.radioCheck);
+answerForm.addEventListener('submit', newTest.winLoseCheck);
