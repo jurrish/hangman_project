@@ -69,6 +69,28 @@ addingQuestions();
 // questionsObject[0].appendingImage();
 //
 //display answers
+// <<<<<<< HEAD
+// function displayMultAnswers() {
+//   for (var i = 0; i < responseArray.length; i++){
+//     for (var j = 0; j < responseArray[i].length; j++){
+//
+//       var radioTestOne = document.getElementById('testOne');
+//       radioTestOne.textContent = responseArray[i][j++];
+//
+//       var radioTestTwo = document.getElementById('testTwo');
+//       radioTestTwo.textContent = responseArray[i][j++];
+//
+//       var radioTestThree = document.getElementById('testThree');
+//       radioTestThree.textContent = responseArray[i][j++];
+//
+//       var radioTestFour = document.getElementById('testFour');
+//       radioTestFour.textContent = responseArray[i][j];
+//       //console.log(responseArray[i][j]);
+//     }
+//   }
+// };
+// displayMultAnswers();
+// =======
 // function displayMultAnswers() {
 //   for (var i = 0; i < responseArray.length; i++){
 //     for (var j = 0; j < responseArray[i].length; j++){
@@ -102,8 +124,18 @@ addingQuestions();
 //sync submit button to hangman and wrong anwser section
 
 //sync 'back to questions' button back to game and clear wrong answers section
+//>>>>>>> master
 
-// tracker of wrong and correct answers sync to localstorage
+//display wrong answers in wrong anwser section
+function displayCorrectAnswers(){
+  for(var i = 0; i < correctAnswer.length; i++){
+    var rightAnswer = document.getElementById('wrongAnswer');
+    var theAnswerIs = document.createElement('p');
+    theAnswerIs.textContent = correctAnswer[i];
+    rightAnswer.appendChild(theAnswerIs);
+  }
+};
+displayCorrectAnswers();
 
 //canvas
 var canvas = document.getElementById('canvasHangman'),context = canvas.getContext('2d');
