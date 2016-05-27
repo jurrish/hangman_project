@@ -68,7 +68,7 @@ var accountFunctions = {
   loadGamePage : function() {
     window.location = 'game_page/game_page.html';
     // Get active user from local storage.  May want to move some function to occur on page load for game page.
-    accountFunctions.activeUser = JSON.parse(localStorage.getItem('activeUser')); // Supposed to assign value to the activeUser after page load. Does not appear to work.
+    accountFunctions.activeUser = JSON.parse(localStorage.getItem('activeUser')); // Not sure this call is needed
     console.log(accountFunctions.activeUser);
   }
 };
