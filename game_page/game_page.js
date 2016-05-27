@@ -221,12 +221,14 @@ var newTest = {
   },
   appendingImage : function() {
     if (activeUser.questionsAsked === 12) { //Testing
-      console.log('Game won - ending no more question pictures');
+      console.log('Game won - ending no more question pictures');////////////////
+      ansEl.appendChild(ansPTag).textContent = 'Good Job!';
       newTest.won = true;
       return;
     }
     if (activeUser.questionsWrong === 6) {
-      console.log('Game lost - not showing new question pictures');
+      console.log('Game lost - not showing new question pictures');////////////
+      ansEl.appendChild(ansPTag).textContent = 'Game Over';
       newTest.lost = true;
       return;
     }
@@ -267,24 +269,24 @@ var newTest = {
   //     console.log('endGame method was called');
   //   }
   // },
-  winGame: function() {
-    if(activeUser.questionsAsked === 12){
-      answerForm.hidden = true; //not working
-      ansEl.appendChild(ansPTag).textContent = 'Good Job!';
-      console.log('this part is working');
-    }
-  },
-
-  loseGame: function() {
-    answerForm.hidden = true;
-    ansEl.appendChild(ansPTag).textContent = 'Game Over';
-    console.log('newTest.loseGame was called');
-  },
-
+  // winGame: function() {
+  //   if(activeUser.questionsAsked === 12){
+  //     answerForm.hidden = true; //not working
+  //     ansEl.appendChild(ansPTag).textContent = 'Good Job!';
+  //     console.log('this part is working');
+  //   }
+  // },
+  //
+  // loseGame: function() {
+  //   answerForm.hidden = true;
+  //   ansEl.appendChild(ansPTag).textContent = 'Game Over';
+  //   console.log('newTest.loseGame was called');
+  // },
+  //
   nextQuestion : function() {
     activeUser.questionsAsked += 1;
-    newTest.endGame();
-    newTest.winGame();
+    // newTest.endGame();
+    // newTest.winGame();
     newTest.displayMultAnswers();
     newTest.appendingImage();
   },
@@ -334,17 +336,18 @@ var newTest = {
       canvasRender.leftArm();
     }
   },
-
-  endGame: function() {
-    if(activeUser.questionsWrong === 6) {
-      console.log('endGame method was called');
-    } else if(activeUser.questionsAsked === 12) {
-      answerForm.hidden = true;
-      ansEl.appendChild(ansPTag).textContnt = 'Good Job!';
-      console.log('this part is working');
-    }
-  }
 };
+
+//   endGame: function() {
+//     if(activeUser.questionsWrong === 6) {
+//       console.log('endGame method was called');
+//     } else if(activeUser.questionsAsked === 12) {
+//       answerForm.hidden = true;
+//       ansEl.appendChild(ansPTag).textContnt = 'Good Job!';
+//       console.log('this part is working');
+//     }
+//   }
+// };
 
 window.onload = function(){
   newTest.submitButton.hidden = false;
