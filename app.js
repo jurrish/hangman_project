@@ -14,7 +14,6 @@ function UserAccount(userName, passWord) {
   this.passWord = passWord;
   this.questionsAsked = 0;
   this.questionsWrong = 0;
-  this.indexNum = null;
   userAccountArray.push(this);
   accountFunctions.activeUser = this;
   console.log('New user created! UserAccount object constructor was used.');
@@ -69,12 +68,21 @@ var accountFunctions = {
     // accountFunctions.activeUser = JSON.parse(localStorage.getItem('activeUser')); // Not sure this call is needed
     // console.log(accountFunctions.activeUser);
   },
-  updateLocalStorage : function() {
-    userAccount = JSON.parse(localStorage.getItem('userAccount'));
+
+  getLocalStorage : function() {
+    userAccountArray = JSON.parse(localStorage.getItem('userAccount'));
+    accountFunctions.findUser(activeUser.userNameInput, activeUser.passWord); ///////////////////////broken?
     accountFunctions.activeUser = JSON.parse(localStorage.getItem('activeUser'));
 
-    accountFunctions.findUser(activeUser.userNameInput, activeUser.passWord);
-    localStorage.setItem('activeUser', JSON.stringify(accountFunctions.activeUser));
+  },
+  updateLocalStorage : function() {
+    // userAccount = JSON.parse(localStorage.getItem('userAccount'));
+    // accountFunctions.activeUser = JSON.parse(localStorage.getItem('activeUser'));
+    // accountFunctions.findUser(activeUser.userNameInput, activeUser.passWord);
+    var index = activeUser.indexNum;
+    userAccountArray[index] = activeUser;// --------------------------------2:07
+    console.log(index);
+    localStorage.setItem('activeUser', JSON.stringify(activeUser));
     localStorage.setItem('userAccount', JSON.stringify(userAccountArray));
     console.log(activeUser);
   }

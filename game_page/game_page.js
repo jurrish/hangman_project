@@ -275,6 +275,8 @@ var newTest = {
     activeUser.questionsAsked += 1;
     newTest.displayMultAnswers();
     newTest.appendingImage();
+    accountFunctions.updateLocalStorage();//----------------------------------------------------------------------------------2:00pm new
+    accountFunctions.getLocalStorage();
   },
 
   radioCheck: function() {
@@ -319,7 +321,8 @@ var newTest = {
 
 window.onload = function(){
   activeUser = JSON.parse(localStorage.getItem('activeUser'));
-  accountFunctions.updateLocalStorage();//TESTINGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG
+  accountFunctions.getLocalStorage();//------------------------------------------------------------------------------1:59pm new
+  // accountFunctions.updateLocalStorage();//TESTINGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG
   newTest.submitButton.hidden = false;
   newTest.displayMultAnswers();
   newTest.appendingImage();
