@@ -11,14 +11,13 @@ var promptArray = [ 'What is the return value of wallOne?',
  'which of these returns the largest integer less than or equal to a given number?',
  'If hourNow = 14, what will happen?',
  'which element id is being updated with .textContent?' ];
-
 var responseArray = [['15', '40', '8', 'area'], ['It updates the variable el', 'It calls the function', 'It is not important', 'It writes text content into the child element'], ['<p> is a child of <div>', '<head> is a grandchild of document', '<html> is a parent of both <head> and <body>', 'all of these are correct'], ['<link>', 'css', 'index.html', 'it auto links'], ['It would not affect how the method calculates the return value', 'checkAvailability will not run properly', 'the value of Quay will still print out', 'You would have to delete the entire Object to rename it'], ['isNan', 'toFixed', 'toPrecision', 'toExponential'],
 ['getElementById', 'checkAvailability', 'Hotel(name, rooms, booked)', '.name'], ['a unique identifier with data attached', 'it is frequently used to change methods using jQuery', 'they do not have them in any other programming language', 'a deprecated version of control flow'], ['No one knows', '70', '14', 'Scott\'s age'], ['Math.ceil()', 'Math.floor()', 'Math.round()', 'Math.random'], ['the user will see a welcome text', 'the user will see a good morning text', 'the user will see a good evening text', 'the user will see a good afternoon text'], ['var el', 'cost', 'total', 'document']];
 
 var correctAnswer = ['15', 'It calls the function', 'all of these are correct', 'css/', 'It would not affect how the method calculates the return value', 'toFixed', 'getElementById', 'a unique identifier with data attached', '70', 'Math.floor()', 'the user will see a good afternoon text', 'cost'];
 var questionsObject = [];
 var answerArray = [];
-var questionNames = ['calculate', 'callQuestion', 'htmlQuestion', 'testQuestion', 'varQuestion', 'childQuestion', 'methodQuestion', 'methodQuestion2', 'multipleObjects', 'objLitQuestion', 'returnQuestion', 'roundDownQuestion'];
+var questionNames = ['calculate', 'callQuestion', 'childQuestion', 'htmlQuestion', 'methodQuestion', 'methodQuestion2', 'multipleObjects', 'objLitQuestion', 'returnQuestion', 'roundDownQuestion', 'testQuestion', 'varQuestion'];
 
 // function Question(name, path) {
 //   this.name = name;
@@ -56,40 +55,76 @@ function addingQuestions() {
 };
 addingQuestions();
 
-QuesConstructor.prototype.appendingImage = function() {
-  var elQuesPic = document.getElementById('img');
-  var elQuesParent = document.getElementById('test');
-  var elQuesText = document.createElement('p');
-  for(var i = 0; i < questionsArray.length; i++) {
-    elQuesPic.src = questionsArray[i].path;
-    console.log('image pop');
-    elQuesText.textContent = 'hola fucker';
-    elQuesParent.appendChild(elQuesText);
-  }
-};
-questionsObject[0].appendingImage();
-
+// QuesConstructor.prototype.appendingImage = function() {
+//   var elQuesPic = document.getElementById('img');
+//   var elQuesParent = document.getElementById('test');
+//   var elQuesText = document.createElement('p');
+//   for(var i = 0; i < questionsArray.length; i++) {
+//     elQuesPic.src = questionsArray[i].path;
+//     console.log('image pop');
+//     elQuesText.textContent = promptArray[i]; //pulling information from the promptArray[i], and will be run from the engine at the end. we will have instances of the object created and then run by a for loop at the end
+//     elQuesParent.appendChild(elQuesText);
+//   }
+// };
+// questionsObject[0].appendingImage();
+//
 //display answers
-function displayMultAnswers() {
-  for (var i = 0; i < responseArray.length; i++){
-    for (var j = 0; j < responseArray[i].length; j++){
+// <<<<<<< HEAD
+// function displayMultAnswers() {
+//   for (var i = 0; i < responseArray.length; i++){
+//     for (var j = 0; j < responseArray[i].length; j++){
+//
+//       var radioTestOne = document.getElementById('testOne');
+//       radioTestOne.textContent = responseArray[i][j++];
+//
+//       var radioTestTwo = document.getElementById('testTwo');
+//       radioTestTwo.textContent = responseArray[i][j++];
+//
+//       var radioTestThree = document.getElementById('testThree');
+//       radioTestThree.textContent = responseArray[i][j++];
+//
+//       var radioTestFour = document.getElementById('testFour');
+//       radioTestFour.textContent = responseArray[i][j];
+//       //console.log(responseArray[i][j]);
+//     }
+//   }
+// };
+// displayMultAnswers();
+// =======
+// function displayMultAnswers() {
+//   for (var i = 0; i < responseArray.length; i++){
+//     for (var j = 0; j < responseArray[i].length; j++){
+//
+//       var radioTestOne = document.getElementById('testOne');
+//       radioTestOne.textContent = responseArray[i][j++];
+//
+//       var radioTestTwo = document.getElementById('testTwo');
+//       radioTestTwo.textContent = responseArray[i][j++];
+//
+//       var radioTestThree = document.getElementById('testThree');
+//       radioTestThree.textContent = responseArray[i][j++];
+//
+//       var radioTestFour = document.getElementById('testFour');
+//       radioTestFour.textContent = responseArray[i][j];
+//       //console.log(responseArray[i][j]);
+//     }
+//   }
+// };
+// displayMultAnswers();
+// // display wrong answers in wrong anwser section
+// function displayCorrectAnswers(){
+//   for(var i = 0; i < correctAnswer.length; i++){
+//     var rightAnswer = document.getElementById('wrongAnswer');
+//     var theAnswerIs = document.createElement('p');
+//     theAnswerIs.textContent = correctAnswer[i];
+//     rightAnswer.appendChild(theAnswerIs);
+//   }
+// };
+// displayCorrectAnswers();
+//sync submit button to hangman and wrong anwser section
 
-      var radioTestOne = document.getElementById('testOne');
-      radioTestOne.textContent = responseArray[i][j++];
-
-      var radioTestTwo = document.getElementById('testTwo');
-      radioTestTwo.textContent = responseArray[i][j++];
-
-      var radioTestThree = document.getElementById('testThree');
-      radioTestThree.textContent = responseArray[i][j++];
-
-      var radioTestFour = document.getElementById('testFour');
-      radioTestFour.textContent = responseArray[i][j];
-      //console.log(responseArray[i][j]);
-    }
-  }
-};
-displayMultAnswers();
+//sync 'back to questions' button back to game and clear wrong answers section
+//>>>>>>> master
 
 //display wrong answers in wrong anwser section
 function displayCorrectAnswers(){
@@ -104,15 +139,17 @@ displayCorrectAnswers();
 
 //canvas
 var canvas = document.getElementById('canvasHangman'),context = canvas.getContext('2d');
-window.onload = function(){
-  canvasRender.gallows();
-  canvasRender.head();
-  canvasRender.torso();
-  canvasRender.rightLeg();
-  canvasRender.leftLeg();
-  canvasRender.rightArm();
-  canvasRender.leftArm();
-};
+// window.onload = function(){
+//   //get activeUser
+//   activeUser = JSON.parse(localStorage.getItem('activeUser'));
+//   canvasRender.gallows();
+//   canvasRender.head();
+//   canvasRender.torso();
+//   canvasRender.rightLeg();
+//   canvasRender.leftLeg();
+//   canvasRender.rightArm();
+//   canvasRender.leftArm();
+// };
 
 var canvasRender = {
   gallows: function(){
@@ -268,11 +305,23 @@ var canvasRender = {
   }
 };
 
+// questionsObject[0].appendingImage();
+
 var radioButtons = document.getElementsByName('answers');
 var answerForm = document.getElementById('formId');
 var newTest = {
+  // i: null,
   selection: null,
   selectionLabel: null,
+  appendingImage : function() {
+    var elQuesPic = document.getElementById('img');
+    var elQuesParent = document.getElementById('test');
+    var elQuesText = document.getElementById('question');
+    elQuesPic.src = questionsArray[activeUser.questionsAsked].path;
+    console.log('image pop');
+    elQuesText.textContent = promptArray[activeUser.questionsAsked];
+    elQuesParent.appendChild(elQuesText);
+  },
   radioCheck: function() {
     event.preventDefault();
     for (var r = 0; r < radioButtons.length; r++) {
@@ -281,16 +330,68 @@ var newTest = {
         selectionLabel = selection.labels;
         console.log(selection);
         console.log(selectionLabel);
+        radioButtons[r].checked = false;
       }
     };
-    if (selectionLabel[0].textContent === questionsArray[0].answer) {
+    if (selectionLabel[0].textContent === questionsArray[activeUser.questionsAsked].answer) {
       console.log('You got it right!');
       //Call some method
+      newTest.nextQuestion();
     } else {
       console.log('You got it wrong');
+      newTest.nextQuestion();
       //Call some method
     }
   },
+  displayMultAnswers: function() {
+    // for (var i = 0; i < responseArray.length; i++){
+    for (var j = 0; j < responseArray[activeUser.questionsAsked].length; j++){
+
+      var radioTestOne = document.getElementById('testOne');
+      radioTestOne.textContent = responseArray[activeUser.questionsAsked][j++];
+
+      var radioTestTwo = document.getElementById('testTwo');
+      radioTestTwo.textContent = responseArray[activeUser.questionsAsked][j++];
+
+      var radioTestThree = document.getElementById('testThree');
+      radioTestThree.textContent = responseArray[activeUser.questionsAsked][j++];
+
+      var radioTestFour = document.getElementById('testFour');
+      radioTestFour.textContent = responseArray[activeUser.questionsAsked][j];
+        //console.log(responseArray[i][j]);
+    }
+  },
+  nextQuestion : function() {
+    activeUser.questionsAsked += 1;
+    newTest.displayMultAnswers();
+    newTest.appendingImage();
+  }
+  // },
 };
 
+window.onload = function(){
+  //get activeUser
+  activeUser = JSON.parse(localStorage.getItem('activeUser'));
+  newTest.displayMultAnswers();
+  newTest.appendingImage();
+  canvasRender.gallows();
+  canvasRender.head();
+  canvasRender.torso();
+  canvasRender.rightLeg();
+  canvasRender.leftLeg();
+  canvasRender.rightArm();
+  canvasRender.leftArm();
+};
 answerForm.addEventListener('submit', newTest.radioCheck);
+
+// displayMultAnswers();
+// // display wrong answers in wrong anwser section
+// function displayCorrectAnswers(){
+//   for(var i = 0; i < correctAnswer.length; i++){
+//     var rightAnswer = document.getElementById('wrongAnswer');
+//     var theAnswerIs = document.createElement('p');
+//     theAnswerIs.textContent = correctAnswer[i];
+//     rightAnswer.appendChild(theAnswerIs);
+//   }
+// };
+// displayCorrectAnswers();

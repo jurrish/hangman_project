@@ -8,53 +8,34 @@ html{
   width: 100%;
   box-shadow: 0 0 200px rgba(0,0,0,0.9) inset;
 }
-body * {
-  margin: 0 auto;
-  padding: 0 auto;
+* {
+  margin: auto;
+  padding: auto;
+}
+body {
+  margin: 0px auto;
+  padding: 0px auto;
   width: 960px;
+}
+.knot{
+  width: 130px;
+  float: right;
+  margin-top: -157px;
+  margin-right: 65px;
+}
+nav{
+  margin-bottom: 90px;
 }
 h1{
   font-family: 'PT Sans', sans-serif;
   font-size: 3em;
 }
-#knot{
-  width: 130px;
-  float: right;
-  margin-top: -165px;
-  margin-right: 65px;
-}
-#about{
-  padding-left: 20px;
-  padding-right: 20px;
-  padding-bottom: 40px;
-  background-color: #FCF4F6;
-  border-radius: 10px;
-  border: 3px solid #000;
-}
-header {
-  text-align: center;
-  padding-top: 70px;
-  padding-bottom: 50px;
-}
-#title{
-  text-align: center;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  padding-top: 15px;
-  padding-bottom: 15px;
-  font-family: 'PT Sans', sans-serif;
-  font-size: 1.8em;
-}
-nav{
-  margin-bottom: 90px;
-}
-ul{
-  padding: 0px;
-}
-li {
+ul li {
   display: inline;
-  text-decoration: none;
-  margin-right: 15px;
+  list-style-type: none;
+}
+li{
+  padding-right: 15px;
 }
 a{
   text-decoration: none;
@@ -68,8 +49,78 @@ a:link, a:visited{
 a:hover, a:active{
   color: #FCF4F6;
 }
+header{
+  text-align: center;
+  padding-top: 70px;
+  padding-bottom: 50px;
+}
+.container {
+  height: 400px;
+  width: 400px;
+  margin: 10px;
+  background-color: #FCF4F6;
+  border-radius: 10px;
+  border: 3px solid #000;
+}
+#question {
+  float: left;
+}
+#answer {
+  float: left;
+  clear: left;
+  margin-top: 35px;
+}
+#hangman {
+  float: right;
+  margin-top: -416px;
+}
+#wrongAnswer {
+  float: right;
+  clear: right;
+  margin-top: 35px;
+}
+#submitButton {
+  clear: both;
+}
+#submit {
+  margin-left: 165px;
+}
+#backToQuestion{
+  width: 200px;
+  float: right;
+  margin-right: 90px;
+}
+.gameButtons{
+  margin-top: 20px;
+  width: 100px;
+  height: 32px;
+  font-size: .8em;
+  background-color: #000;
+  color: #fff;
+  border: 2px solid #000;
+  border-radius: 5px 5px 5px 5px;
+}
+#about{
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 40px;
+  background-color: #FCF4F6;
+  border-radius: 10px;
+  border: 3px solid #000;
+}
+
+#title{
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  font-family: 'PT Sans', sans-serif;
+  font-size: 1.8em;
+}
 #form{
   margin-top: 50px;
+  margin-left: 300px;
   width: 200px;
 }
 #intro{
@@ -94,10 +145,13 @@ input{
   margin-bottom: 10px;
   font-size: .8em;
 }
+#submit{
+  margin-top: 90px;
+}
 #startButton{
   width: 150px;
   float: right;
-  margin-right: 22px;
+  margin-right: -68px;
   font-size: .8em;
   background-color: #000;
   color: #fff;
@@ -105,9 +159,71 @@ input{
   border-radius: 5px 5px 5px 5px;
   clear: left;
 }
-footer{
-  margin-top: 290px;
+#source {
+  padding-top: 210px;
+  padding-bottom: 10px;
+}
+.sourceMaterial {
+  font-size: .7em;
+}
+fieldset, label, input{
+  width: 365px;
+  float: left;
+  padding-bottom: 20px;
+}
+fieldset{
+  border: none;
+}
+img {
+  width: 400px;
+}
+#canvasHangman {
+  width: 400px;
+  height: 400px;
+}
+.bioPic {
+  width: 12em;
+  height: 12em;
+  margin: 1em;
+  background-color: #FCF4F6;
+  border-radius: 10px;
+  border: 3px solid #000;
+}
+#bio1 {
+  width: 450px;
+  float: left;
   text-align: center;
-  padding-top: 50px;
-  padding-bottom: 50px;
+}
+#bio2 {
+  width: 450px;
+  float: right;
+  text-align: center;
+}
+#bio3 {
+  clear: right;
+  text-align: center;
+  padding-top: 3em;
+}
+#codeFellows {
+  padding-top: 45px;
+  padding-bottom: 45px;
+  text-align: center;
+}
+.biography{
+  font-family: 'PT Sans', sans-serif;
+  background-color: #FCF4F6;
+  border-radius: 10px;
+  border: 3px solid #000;
+  padding: 4px;
+}
+#contactNav{
+  padding-top: 45px;
+}
+footer{
+  text-align: center;
+  margin-top: 60px;
+  font-family: 'PT Sans', sans-serif;
+}
+.bottomOfPage{
+   margin-top:600px;
 }

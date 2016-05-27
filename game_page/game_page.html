@@ -2,13 +2,13 @@
 <html>
   <head>
     <title>Hangman</title>
-    <link rel="stylesheet" href="game_page.css"/>
+    <link rel="stylesheet" href="../style.css"/>
   </head>
   <body>
     <main>
       <header>
         <h1>Hangman</h1>
-        <img alt="knot" id='knot' src="../image/knot.png">
+        <img alt="knot" class='knot' src="../image/knot.png">
       </header>
       <nav>
         <ul>
@@ -18,7 +18,9 @@
       </nav>
       <section class="container" id="ques">
         <img src='' id='img'>
-        <div id='test'></div>
+        <div id='test'>
+          <p id='question'></p>
+        </div>
       </section>
       <section class="container" id="answer">
           <form id='formId'>
@@ -48,7 +50,7 @@
         </canvas>
       </section>
       <section class="container" id="wrongAnswer"></section>
-      <footer>
+      <footer class="bottomOfPage">
         <section id="source">
           <p class="sourceMaterial">Duckett, Jon. Javascript &amp; JQuery, Interactive Front-End Web Development</p>
           <p class="sourceMaterial">John Wiley &amp; Sons, Inc. 2014</p>
