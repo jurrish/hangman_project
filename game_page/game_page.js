@@ -202,13 +202,19 @@ var answerForm = document.getElementById('formId');
 var ansEl = document.getElementById('answer');
 var ansPTag = document.createElement('p');
 var newTest = {
+  submitButton: document.getElementById('submit'),
+  // this.submitButton.hidden: false,
   won: false,
   lost: false,
   selection: null,
   selectionLabel: null,
   winLoseCheck: function() {
-    if (newTest.lost = true) {
+    if (newTest.lost === true) {
       console.log('Game is Over - lost = true');
+      // newTest.submitButton.hidden = true;
+      // formEl.removeEventListener('submit', newTest.radioCheck);
+      // newTest.loseGame();
+      // newTest.endGame();
     }
   },
   appendingImage : function() {
@@ -249,24 +255,31 @@ var newTest = {
     var radioTestFour = document.getElementById('testFour');
     radioTestFour.textContent = responseArray[activeUser.questionsAsked][j];
   },
-  endGame: function() {
-    if(activeUser.questionsWrong === 6) {
-      answerForm.hidden = true;
-      ansEl.appendChild(ansPTag).textContent = 'Try Again!';
-      console.log('endGame method was called');
-    }
-  },
+  // endGame: function() {
+  //   if(activeUser.questionsWrong === 6) {
+  //     answerForm.hidden = true;
+  //     ansEl.appendChild(ansPTag).textContent = 'Try Again!';
+  //     console.log('endGame method was called');
+  //   }
+  // },
   winGame: function() {
     if(activeUser.questionsAsked === 12){
-      answerForm.hidden = true;
-      ansEl.appendChild(ansPTag).textContnt = 'Good Job!';
+      answerForm.hidden = true; //not working
+      ansEl.appendChild(ansPTag).textContent = 'Good Job!';
       console.log('this part is working');
     }
   },
+
+  loseGame: function() {
+    answerForm.hidden = true;
+    ansEl.appendChild(ansPTag).textContent = 'Game Over';
+    console.log('newTest.loseGame was called');
+  },
+
   nextQuestion : function() {
     activeUser.questionsAsked += 1;
-    newTest.endGame();
-    newTest.winGame();
+    // newTest.endGame();
+    // newTest.winGame();
     newTest.displayMultAnswers();
     newTest.appendingImage();
   },
@@ -319,7 +332,6 @@ var newTest = {
 
   endGame: function() {
     if(activeUser.questionsWrong === 6) {
-      answerForm.removeEventListener('submit', newTest.radioCheck);
       console.log('endGame method was called');
     } else if(activeUser.questionsAsked === 12) {
       answerForm.hidden = true;
@@ -327,11 +339,12 @@ var newTest = {
       console.log('this part is working');
     }
   }
-  // },
 };
 
 window.onload = function(){
+  // newTest.submitButton.hidden = false;
   //get activeUser
+  newTest.submitButton.hidden = false;
   activeUser = JSON.parse(localStorage.getItem('activeUser'));
   newTest.displayMultAnswers();
   newTest.appendingImage();
