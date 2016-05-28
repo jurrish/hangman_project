@@ -14,7 +14,9 @@ function UserAccount(userName, passWord) {
   this.passWord = passWord;
   this.questionsAsked = 0;
   this.questionsWrong = 0;
+  this.questionsRight = 0;
   userAccountArray.push(this);
+  accountFunctions.activeUser = this;
   console.log('New user created! UserAccount object constructor was used.');
 }
 
@@ -27,8 +29,10 @@ var accountFunctions = {
           if (passWord === userAccountArray[users].passWord) {
             console.log('innerLoop');
             accountFunctions.activeUser = userAccountArray[users];
-            //Push activeUser to localStorage
+            accountFunctions.activeUser.indexNum = users;
             localStorage.setItem('activeUser', JSON.stringify(accountFunctions.activeUser));
+            userAccountArray[users] = accountFunctions.activeUser;//test
+
             console.log('findUser method found the user account');
           }
         }
@@ -39,7 +43,7 @@ var accountFunctions = {
   newUser : function(obj, userName, passWord) {
     if (obj === null) {
       accountFunctions.activeUser = new UserAccount(userName, passWord);
-      //Push activeUser to local storage
+      accountFunctions.findUser(accountFunctions.activeUser.userName, accountFunctions.activeUser.passWord);
       localStorage.setItem('activeUser', JSON.stringify(accountFunctions.activeUser));
       console.log('newUser method used to create a new user account');
       console.log(accountFunctions.activeUser);
@@ -58,9 +62,21 @@ var accountFunctions = {
 
   loadGamePage : function() {
     window.location = 'game_page/game_page.html';
-    // Get active user from local storage.  May want to move some function to occur on page load for game page.
-    accountFunctions.activeUser = JSON.parse(localStorage.getItem('activeUser')); // Not sure this call is needed
-    console.log(accountFunctions.activeUser);
+  },
+
+  getLocalStorage : function() {
+    userAccountArray = JSON.parse(localStorage.getItem('userAccount'));
+    accountFunctions.findUser(activeUser.userNameInput, activeUser.passWord);
+    accountFunctions.activeUser = JSON.parse(localStorage.getItem('activeUser'));
+
+  },
+  updateLocalStorage : function() {
+    var index = activeUser.indexNum;
+    userAccountArray[index] = activeUser;
+    console.log(index);
+    localStorage.setItem('activeUser', JSON.stringify(activeUser));
+    localStorage.setItem('userAccount', JSON.stringify(userAccountArray));
+    console.log(activeUser);
   }
 };
 
