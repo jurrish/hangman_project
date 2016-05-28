@@ -266,7 +266,6 @@ var newTest = {
     }
     if(activeUser.questionsWrong === 6){
       canvasRender.leftArm();
-      canvasRender.gameOver();
     }
   },
 
