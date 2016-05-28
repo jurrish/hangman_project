@@ -1,10 +1,8 @@
 if (localStorage.getItem('userAccount') === null) {
-  console.log('userAccount array created.');
   var userAccountArray = [];
   localStorage.setItem('userAccount', JSON.stringify(userAccountArray));
 } else {
   var userAccountArray = JSON.parse(localStorage.getItem('userAccount'));
-  console.log('userAccount obtained from localStorage.');
 }
 
 var formEl = document.getElementById('form');
@@ -17,7 +15,6 @@ function UserAccount(userName, passWord) {
   this.questionsRight = 0;
   userAccountArray.push(this);
   accountFunctions.activeUser = this;
-  console.log('New user created! UserAccount object constructor was used.');
 }
 
 var accountFunctions = {
@@ -27,13 +24,10 @@ var accountFunctions = {
       if (userName === userAccountArray[users].userName) {
         for (users in userAccountArray) {
           if (passWord === userAccountArray[users].passWord) {
-            console.log('innerLoop');
             accountFunctions.activeUser = userAccountArray[users];
             accountFunctions.activeUser.indexNum = users;
             localStorage.setItem('activeUser', JSON.stringify(accountFunctions.activeUser));
             userAccountArray[users] = accountFunctions.activeUser;//test
-
-            console.log('findUser method found the user account');
           }
         }
       }
@@ -45,8 +39,6 @@ var accountFunctions = {
       accountFunctions.activeUser = new UserAccount(userName, passWord);
       accountFunctions.findUser(accountFunctions.activeUser.userName, accountFunctions.activeUser.passWord);
       localStorage.setItem('activeUser', JSON.stringify(accountFunctions.activeUser));
-      console.log('newUser method used to create a new user account');
-      console.log(accountFunctions.activeUser);
       localStorage.setItem('userAccount', JSON.stringify(userAccountArray));
     }
   },
@@ -73,10 +65,8 @@ var accountFunctions = {
   updateLocalStorage : function() {
     var index = activeUser.indexNum;
     userAccountArray[index] = activeUser;
-    console.log(index);
     localStorage.setItem('activeUser', JSON.stringify(activeUser));
     localStorage.setItem('userAccount', JSON.stringify(userAccountArray));
-    console.log(activeUser);
   }
 };
 

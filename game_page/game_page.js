@@ -248,7 +248,6 @@ var newTest = {
   },
 
   wrongCounter: function() {
-    console.log(activeUser.questionsWrong + ' = quests wrong value');
 
     if(activeUser.questionsWrong >= 1){
       canvasRender.head();
@@ -285,20 +284,16 @@ var newTest = {
       if (radioButtons[r].checked) {
         selection = radioButtons[r];
         selectionLabel = selection.labels;
-        console.log(selection);
-        console.log(selectionLabel);
         radioButtons[r].checked = false;
       }
     };
     if (selectionLabel[0].textContent === questionsArray[activeUser.questionsAsked].answer) {
-      console.log('You got it right!');
       activeUser.questionsRight += 1;
       newTest.nextQuestion();
     } else {
       activeUser.questionsWrong += 1;
       newTest.wrongCounter();
       displayCorrectAnswers();
-      console.log('You got it wrong');
       newTest.nextQuestion();
     }
   },
@@ -306,16 +301,11 @@ var newTest = {
   winLoseCheck: function() {
     if (newTest.lost === true) {
       submitButton.hidden = true;
-      console.log('Game is Over - lost = true');
     }
     if (newTest.won === true) {
       submitButton.hidden = true;
-      console.log('Game is Won - won = true');
     }
   },
-  //Something to show the correct answer to a question that is answered wrong.
-  //Listener event and functionality for back to questions button.
-  //Maybe have a reset function at the end of the game to play again.
 
 };
 
